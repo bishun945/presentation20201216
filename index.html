@@ -1,0 +1,3353 @@
+<!DOCTYPE html>
+<html xml:lang="" lang=""><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>ALGAL GAME</title>
+    <meta charset="utf-8">
+    <meta name="author" content="毕顺">
+    <link href="index_files/default.css" rel="stylesheet">
+    <link href="index_files/fontawesome-all.css" rel="stylesheet">
+    <script src="index_files/kePrint.js"></script>
+    <link href="index_files/lightable.css" rel="stylesheet">
+    <script src="index_files/htmlwidgets.js"></script>
+    <script src="index_files/jquery.js"></script>
+    <link href="index_files/leaflet.css" rel="stylesheet">
+    <script src="index_files/leaflet.js"></script>
+    <link href="index_files/leafletfix.css" rel="stylesheet">
+    <script src="index_files/proj4-compressed.js"></script>
+    <script src="index_files/proj4leaflet.js"></script>
+    <link href="index_files/rstudio_leaflet.css" rel="stylesheet">
+    <script src="index_files/leaflet_002.js"></script>
+    <script src="index_files/plotly.js"></script>
+    <script src="index_files/typedarray.js"></script>
+    <link href="index_files/crosstalk.css" rel="stylesheet">
+    <script src="index_files/crosstalk.js"></script>
+    <link href="index_files/plotly-htmlwidgets.css" rel="stylesheet">
+    <script src="index_files/plotly-latest.js"></script><style id="plotly.js-style-global"></style>
+    <link rel="stylesheet" href="index_files/zh-CN.css" type="text/css">
+    <link rel="stylesheet" href="index_files/extra.css" type="text/css">
+  <script type="text/javascript" src="index_files/MathJax.js"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+  <body data-new-gr-c-s-check-loaded="8.867.0"><div id="MathJax_Message" style="display: none;"></div>
+    <textarea id="source">class: center, middle, inverse, title-slide
+
+# ALGAL GAME
+## 例会汇报
+### 毕顺
+### 南京师范大学
+### 2020/11/28 (Update: 2020-12-15)
+
+---
+
+
+class: center, middle, inverse
+
+# Content
+
+### .boldred[Algal game]
+
+### 利用git实现版本控制
+
+### Markdown写作
+
+### 开源项目
+
+---
+
+class: inverse, center, middle
+
+## PART I: Algal game
+## 藻类“游戏/比赛”？
+
+---
+
+class: center, middle, inverse
+
+.size-90[
+![](./figs/algal-game.png)
+]
+
+
+.bold[Image adapted from]: Pal M, Yesankar P J, Dwivedi A, et al. Biotic
+ control of harmful algal blooms (HABs): A brief review[J]. Journal of 
+Environmental Management, 2020, 268: 110687.
+
+
+---
+
+class: center, middle, inverse
+
+# PART I: Algal game
+# 藻类“游戏/比赛”？
+
+.large[
+
+.bold[Article]: Klausmeier C A, Litchman E. Algal games: The vertical 
+distribution of phytoplankton in poorly mixed water columns[J]. 
+Limnology and Oceanography, 2001, 46(8): 1998-2007.
+
+藻类生存.red[博弈]：弱混合水柱中藻类的垂向分布
+
+]
+
+???
+
+美国普林斯顿大学 克劳斯麦尔
+
+---
+
+## 摘要
+
+此处的**game**应当是**Game Theory**（博弈论&lt;sup&gt;[1]&lt;/sup&gt;）中的**博弈**的概念：
+
+&gt; 
+具有竞争或对抗性质的行为称为博弈行为。在这类行为中，参加斗争或竞争的各方各自具有不同的目标或利益。为了达到各自的目标和利益，各方必须考虑对手的各
+种可能的行动方案，并力图选取对自己最为有利或最为合理的方案。
+
+--
+
+对于在自然界水体中生存的藻类而言，它们通常面临着**两种**基本资源形成鲜明对比的生存困境：
+
+--
+
+- 来自水柱上方的.boldred[光照]；
+
+--
+
+- 通常来自水柱底部（sediment，沉积物）释放的.boldred[营养盐]。
+
+--
+
+当然，除生存所需的资源外，还面对这一些死亡威胁，比如：吃藻的鱼；打捞藻的船师傅；把藻拿去室内做实验的搞科研的人。。。
+
+.footnote[
+
+[1] https://zh.wikipedia.org/wiki/%E5%8D%9A%E5%BC%88%E8%AE%BA
+
+]
+
+---
+
+## 摘要
+
+因此，在弱混合状态的水柱中（密度梯度组织整个水柱的混合或湍流动能的来源较小时）藻类往往呈现非均匀分布的：在水表面、水柱中部或是沉积物表面（水柱底
+部）形成藻类生物量的高峰，高达水柱中90%的总生物量。这些峰值薄层一般也叫作：
+
+--
+
++ Surface scums 表层堆积
+
+--
+
++ Benthic layers 底栖（qi）层
+
+--
+
++ Deep Chlorophyll maxima （DCM）叶绿素浓度的极大值分布
+
+--
+
+&lt;br&gt;
+
+Chris研究的主要观点为：造成这种垂向分布模式（pattern）的差异主要由**藻类对光照和营养盐的种内竞争（intraspecific 
+competition&lt;sup&gt;[1]&lt;/sup&gt;）与藻类的浮游特性**所导致。 
+
+.footnote[
+
+[1] https://baike.baidu.com/item/%E7%A7%8D%E5%86%85%E6%96%97%E4%BA%89
+
+]
+
+---
+
+### 摘要
+
+
+该研究首先介绍了基于“藻类生物量、营养盐与光照”的“[反应-扩散-趋性](https://web.math.sinica.edu.tw
+/math_media/d243/24306.pdf)”模型的数值解；随后，分析了一个相关的博弈理论模型，该模型将藻类的峰值薄层所在深度视为博弈
+中的一个策略；
+
+.footnote[.small[
+
+趋性：（taxis） 
+具有自由运动能力的生物，对外部刺激的反应而引起运动，这种运动具有一定方向性时称为趋性。运动可分为定位的运动和不定位的运动（不定向运动）。我更喜欢
+叫滑动项。
+
+ESS：指种群的大部分成员所采取某种策略，这种策略的好处为其他策略所不及。动物个体之间常常为各种资源竞争或合作，但竞争或合作不是杂乱无章的，而是
+按一定行为方式（即策略）进行的。
+
+]]
+
+--
+
+藻类的.red[进化稳定策略]（Evolutionarily stable 
+strategy，ESS）是同时受两种资源限制后确定的深度（即光照与营养盐的平衡位置）。换句话说，大部分藻类群体为了生存下去，
+会.boldred[调节自身位置到水柱中两种资源均衡的深度]：随着养分供给增加，ESS层变浅；随光供应的增加，ESS层变深。
+
+--
+
++ 对于低营养水平、低*K_d_*（清澈）和浅水柱，会形成底栖（qi）层；
+
+--
+
++ 对于深水柱的中等养分水平，易出现DCM型；
+
+--
+
++ 对于高营养水平水柱，易出现表层堆积型（水华）
+
+---
+
+## 引言
+
+DCM大小湖泊中是最主要的垂向分异的主要分布模式，占比高达90%。尽管水柱的弱混合状态可以解释大部分垂向分异的原因（**定性**）但是并无法解释
+如何产生哪些模式（**定量**）；
+
+&gt; Xue等（2015）给出的4种模式中（混合态和三个表层堆积态）是偏颇的，因为DCM可能才是湖泊中最主要的pattern
+
+--
+
+不同的藻类拥有不同调节自身位置的方式：
+
++ 鞭毛藻：游泳；
+
++ 蓝绿藻：调节浮力（表面水华通常由正浮力的蓝绿藻主导）；
+
++ 一些硅藻：在富营养水体中调节沉降速率。
+
+DCM的厚度因混合程度的不同可以从.boldred[几厘米变化至十几米]。
+
+---
+class: middle
+
+## Chris论文的目的：
+
+.large[
+
++ 通过解控制方程证明在双源驱动下的藻类在水柱中会存在一个峰值薄层；
+
++ 确定ESS深度和平衡生物量，并研究它们如何依赖于表征浮游植物种类以及环境化学和物理特征的参数。
+
+]
+
+---
+
+#### 模型基本定义：
+
+.small[
+
++ 假设一个一维的水柱，深度 `\(z\)` 满足 `\(0 \le z \le z_b\)` ，其中 `\(z=0\)` 为水面， 
+`\(z=z_b\)` 为水柱底部，控制方程中考虑的三个剖线变量分别是藻生物量 `\(b\)` ，营养盐 `\(R\)` 以及光照 
+`\(I\)` ；
+
+]
+
+--
+
+.small[
+
++ 藻类生物量在 `\(z\)` 
+处由三个过程决定大小，即.boldred[生长]、.boldred[消亡]和.boldred[运动]。其中运动又分为.boldred[主动运动]
+与.boldred[被动运动]；
+
+]
+
+--
+
+.small[
+
++ 假设 `\(f_I(I)\)` 和 `\(f_R(R)\)` 
+分别为光照和营养盐限制下的.boldred[藻类生长速率]，在数值解中，作者使用米-门二氏形式（Michaelis-Menten form）求解
+ `\(f_I(I)\)` 和 `\(f_R(R)\)` ： 
+
+`$$f_I(I(z))=r\frac{I(z)}{I(z)+K_I},~f_R(R(z))=r\frac{R(z)}{R(z)+K_R}$$`
+
++ 其中 `\(r\)` 表示最大生长速率， `\(K_I\)` 和 `\(K_R\)` 
+为光照和营养盐半饱和常数（最大生长速率一半时的需求量）；
+
++ 根据利比希（Liebig’s law）中基础资源最小值定律，.boldred[藻类总增长速率]为 `\(\min\{f_I(I), 
+f_R(R)\}\)` ；
+
+]
+
+--
+
+.small[
+
++ 定义藻生物量损失率（假设与密度无关）为 `\(m\)` ，包括呼吸作用、死亡和捕食过程；则藻类在水深 `\(z\)` 
+的.boldred[净增长速率]为：
+
+`$$g(z)=\min\{f_I(I), f_R(R)\} - m$$`
+
++ 其中，两个重要的参数是光照和营养盐的平衡点： `\(I^*=f_I^{-1}(m)\)` 和 
+`\(R^*=f_R^{-1}(m)\)`，净增长（ `\(g(z)&gt;0\)` ）只有在 `\(R&gt;R^*\)` 和 
+`\(I&gt;I^*\)` 的情况下才能实现。
+
+]
+
+---
+
+class: center
+
+#### 米门二氏模型描述了营养物质与藻类生长速率的关系
+
+.size-80[
+![Mich-Men](./figs/Michaelis-Menton.jpg)
+]
+
+
+.footnote[
+
+Figure via: Zhenggang Ji (2008)
+
+]
+
+---
+
+## 模型中的运动项
+
++ .boldred[被动运动]通过涡（wo）流扩散建模，扩散系数为 `\(D_b\)` ，并简化假设扩散系数垂向均一（作者取值 
+`\(D_R=D_b=10^1~m^2~d^{-1}\)` 为弱混合状态， `\(10^3\)` 可认为是强混合）；
+
+--
+
++ .boldred[主动运动]则由趋性项（taxis 
+term）建模：从生物学上说，如果藻类上部的状态更好，则向上移动，反之向下。为模拟该运动，作者令藻类的浮游速度 `\(v\)` 
+是与生长速率的梯度（即 `\(\partial{g}/\partial{z}\)` ）有关的变量，藻类向上移动则为 `\(v\)` 
+的正方向。我们假设 `\(v\)` 是奇减函数， `\(\partial{g}/\partial{z}\)` 趋于负无穷则 
+`\(v=v_{max}\)` ，反之 `\(\partial{g}/\partial{z}\)` 趋于正无穷时则 
+`\(v=-v_{max}\)` ，且 `\(v(0)=0\)` 。作者将 `\(v(\partial{g}/\partial{z})\)` 
+处理成以0为届的分段函数。
+
+--
+
+&lt;img src="Shun_files/figure-html/simulate v function-1.svg" 
+style="display: block; margin: auto;" /&gt;
+
+---
+
+## 模型中的生物量平衡
+
+综上，.boldred[生物量]的平衡方程为： 
+
+`\begin{align}
+\frac{\partial{b}}{\partial{t}} &amp; =
+\min\{f_I(I), f_R(R)\}b -
+mb+
+D_b\frac{\partial^2b}{\partial z^2} +
+\frac{\partial}{\partial z}\Big[\ v \Big( \frac{\partial g}{\partial 
+z}\Big) \Big] \\
+&amp; = [\text{Growth}]-[\text{Loss}]+[\text{Passive 
+movement}]+[\text{Active movement}] \tag{1a}
+\end{align}`
+
+.boldred[边界条件（B.C.）] 假设藻类不离开也不进入水柱，则在 `\(z=0\)` 和 `\(z=z_b\)` 处满足： 
+
+`\begin{align}
+&amp; {\Big[ D_b \frac{\partial b}{\partial z} + v \Big( \frac{\partial 
+g}{\partial z} \Big) b \Big]}\bigg |_{z=0}  = \\
+&amp; {\Big[ D_b \frac{\partial b}{\partial z} + v \Big( \frac{\partial 
+g}{\partial z} \Big) b \Big]}\bigg |_{z=z_b}  =  0 \tag{1b}
+\end{align}`
+
+这是典型的no-flux边界问题，在方程离散中可以假设第一层与最底层的物质浓度分别与第二层与倒数第二层相同。
+
+---
+
+## 模型中的营养盐平衡
+
+.boldred[营养盐]的平衡方程为：
+
+
+`\begin{align}
+\frac{\partial R}{\partial t} &amp; = -\frac{b}{Y}\min\{f_I(I), f_R(R)\}
+ + D_R \frac{\partial ^2 R}{\partial z^2} + \varepsilon m \frac{b}{Y} \\
+&amp; = [\text{Uptake}]+[\text{Mixing}]+[\text{Recycling}] \tag{1c}
+\end{align}`
+
+其中，营养盐 `\(R\)` 被藻类吸收，每单位养分消耗的生物量为 `\(Y\)` 生物量；与涡流扩散系数 `\(D_R\)` 
+混合；营养盐不跃出水面但仅由底部供给，固定浓度为 `\(R_{in}\)`  ，水柱底部的营养盐浓度令为 `\(R(z_b)\)` 
+。营养盐以与沉积物-水界面上的浓度差成比例的速率在整个沉积物-水界面上扩散，.boldred[B.C.]为：
+
+`\begin{align}
+\frac{\partial R}{\partial z} \bigg |_{z=0} = 0, \frac{\partial 
+R}{\partial z}\bigg |_{z=z_b} = h(R_{in}-R(z_b)) \tag{1d}
+\end{align}`
+
+.boldred[注意]：参数 `\(h\)` 表示界面渗透率（沉积物至水柱），当 `\(h \rightarrow 0\)`  
+则为no-flux边界，若 `\(h \rightarrow \infty\)` 则为狄拉克雷边界（即固定值边界条件），此时 
+`\(R(z_b)=R_{in}\)` ；
+
+假设以 `\(\varepsilon\)` 为比例地从死亡浮游植物中循环利用。
+
+---
+
+## 模型中的光能衰减
+
+.boldred[光照]（光能）遵循朗伯比尔定律，受生物量和背景浊度引起的消光作用而减少：
+
+`$$I(z)=I_{\text{in}}\text{exp}\bigg(-\int_0^z[ab(z)+a_{bg}]dz\bigg)
+\tag{1e}$$`
+
+其中， `\(I_{\text{in}}\)` 表示水表面的入射光能， `\(a\)`  表示藻类的比消光系数（比吸收加前向比散射）， 
+`\(a_{bg}\)`  表示背景浊度的消光系数（以非藻类颗粒物为主）。
+
+--
+
+.center[
+.size-35[
+![whereami](./figs/whereami.gif)
+]
+]
+
+--
+
+.center[.boldred[这么多公式，你怕不怕？]]
+
+---
+class: inverse, center, middle
+
+# 容我打个岔
+
+--
+
+.size-30[
+![whyareyouscared](./figs/WhyAreYouScared.gif)
+]
+
+---
+
+### 基于显示有限差分（FDM）求取数值解
+
+[有限差分法](https://zh.wikipedia.org/wiki/%E6%9C%89%E9%99%90%E5%B7%AE%E5%88
+%86%E6%B3%95)是一种微分方程数值方法，通过有限差分来近似导数，从而寻求微分方程的近似解。我们再梳理一遍文章中重要的控制方程。
+
+--
+
+`\begin{align}
+\frac{\partial{b}}{\partial{t}} =
+\min\{f_I(I), f_R(R)\}b -
+mb+
+D_b\frac{\partial^2b}{\partial z^2} +
+\frac{\partial}{\partial z}\Big[\ v \Big( \frac{\partial g}{\partial 
+z}\Big) \Big] \tag{1a}
+\end{align}`
+
+`\begin{align}
+\text{with B.C. } {\Big[ D_b \frac{\partial b}{\partial z} + v \Big( 
+\frac{\partial g}{\partial z} \Big) b \Big]}\bigg |_{z=0}  = {\Big[ D_b 
+\frac{\partial b}{\partial z} + v \Big( \frac{\partial g}{\partial z} 
+\Big) b \Big]}\bigg |_{z=z_b}  =  0 \tag{1b}
+\end{align}`
+
+--
+
+`\begin{align}
+\frac{\partial R}{\partial t} = -\frac{b}{Y}\min\{f_I(I), f_R(R)\} + D_R
+ \frac{\partial ^2 R}{\partial z^2} + \varepsilon m \frac{b}{Y}  
+\tag{1c}
+\end{align}`
+
+`\begin{align}
+\text{with B.C. } \frac{\partial R}{\partial z} \bigg |_{z=0} = 0, 
+\frac{\partial R}{\partial z}\bigg |_{z=z_b} = h(R_{in}-R(z_b)) \tag{1d}
+\end{align}`
+
+--
+
+`\begin{align}
+I(z)=I_{\text{in}}\text{exp}\bigg(-\int_0^z[ab(z)+a_{bg}]dz\bigg) 
+\tag{1e}
+\end{align}`
+
+--
+
+这怎么解？这是人算的吗？
+
+--
+
+不是。利用差分的原理，可以让计算机对这一类型的PDE求取数值解。
+
+???
+Chris的来信中说当时的研究使用的是欧拉法来离散时间的，建议采用Huismanhe和Sommeijer（2002）中“线的方法（[method
+ of 
+lines](https://www.sciencedirect.com/science/article/pii
+/S1385110102001375)）”。
+
+---
+
+class: center, middle
+
+
+![shutup](./figs/OfCourseYouRScared.gif)
+
+不怕才怪哦
+
+---
+
+## 举个例子
+
+我们以最简单的一维扩散方程为例 `\(\frac{\partial c}{\partial t} = D \frac{\partial^2 
+c}{\partial x^2}\)` ，其中 `\(c(x,t)\)` 表示某种物质在 `\(t\)` 时刻、 `\(x\)` 
+位置上的浓度大小，假设其值域为 `\(0 \le x \le L\)`，求 `\(c(x,t)\)` 在任意时刻的分布。
+
+对于 `\(\frac{\partial c}{\partial t}\)` 和 `\(\frac{\partial^2 c}{\partial
+ x^2}\)`  则分别满足以下差分形式：
+
+`\begin{align}
+\frac{\partial c(x,t)}{\partial t} &amp; = \lim_{\Delta t \to 0} 
+\frac{c(x,t) - c(x,t + \Delta t)}{\Delta t} \\
+\frac{\partial^2 c(x,t)}{\partial x^2} &amp; = \lim_{\Delta x \to 0} 
+\frac{
+\frac{\partial c(x+\Delta x, t)}{\partial x} - \frac{\partial c(x, 
+t)}{\partial x}
+}{\Delta x} \\
+&amp; = \lim_{\Delta x^2 \to 0} \frac{ c(x+\Delta x,t) - 2 c(x,t) + 
+c(x-\Delta x,t) }{\Delta x^2}
+\end{align}`
+
+--
+
+在数值分析中，可以将上述公式中的 `\(\Delta x\)` 和 `\(\Delta t\)`  
+确定为一个具体的.boldred[特别小的值]，即可以对扩散方程进行数值求解。
+
+---
+
+对 `\(\frac{\partial c}{\partial t} = D \frac{\partial^2 c}{\partial 
+x^2}\)` 中的 `\(x\)` 和 `\(t\)` 做时空上的离散化，生成一张分别以 `\(dx\)` 和 `\(dt\)` 
+为间隔的网格。 
+
+.boldred[
+`\(c(x,t)\)` 为网格值 `\(c(x_i,t_j)\)` 简写为 `\(c_i^j\)` 表明在 `\(i\)` 空间上， 
+`\(t\)` 时刻的物质浓度 。
+]
+
+&lt;img src="Shun_files/figure-html/draw grid plot-1.svg" 
+style="display: block; margin: auto;" /&gt;
+
+--
+
+因此，上一页的公式可以改写为：
+
+`\begin{align}
+\frac{\partial c}{\partial t} = \frac{c_i^{j+1} - c_i^j}{dt}
+\end{align}`
+
+`\begin{align}
+\frac{\partial^2 c}{\partial x^2} = \frac{ c^j_{i+1} - 2 c_i^j + 
+c_{i-1}^j }{dx^2}
+\end{align}`
+
+---
+
+将上式代入 `\(\frac{\partial c}{\partial t} = D \frac{\partial^2 c}{\partial 
+x^2}\)` 得：
+
+`\begin{align}
+\frac{c_i^{j+1} - c_i^j}{dt} = D \frac{ c^j_{i+1} - 2 c_i^j + c_{i-1}^j 
+}{dx^2}
+\end{align}`
+
+令 `\(\lambda = dt \times D / (dx^2)\)` 则有：
+
+`\begin{align}
+\lambda c^j_{i+1} + (1 -  2 \lambda) c_i^j + \lambda c_{i-1}^j = 
+c_i^{j+1} \tag{*}
+\end{align}`
+
+&lt;img src="Shun_files/figure-html/unnamed-chunk-1-1.svg" 
+style="display: block; margin: auto;" /&gt;
+
+因此，根据公式(*)，以及边界条件，即可逐步向前计算出 `\(c\)` 
+的数值解。这种方法称之为.boldred[显式有限差分法]，也就是Chris在他研究中使用的那种。其逻辑简单明了，也易于编写程序。
+
+---
+
+## 代码实现 &lt;i class="fab  fa-r-project fa-pull-right "&gt;&lt;/i&gt;
+
+这里我们假设边界条件为no-flux条件，即 `\(\frac{\partial c}{\partial x} | _{x=0} = 
+\frac{\partial c}{\partial x} | _{x=1} = 0\)` 。
+
+
+```r
+# 参数初始化
+numx = 101; tstop = 0.1; D = 1
+dx = 1/(numx-1)
+dt = 0.00001
+*lam = dt * D / (dx ^ 2)
+numt = floor(tstop / dt)
+x = seq(0, 1, dx)
+c = matrix(0, ncol=numt+1, nrow=numx)
+t = rep(NA, numt+1)
+
+# 用高斯函数模拟初始值
+t[1] = 0; mu = 0.8; sigma = 0.1
+for(i in 1:numx) {
+  c[i,1] = 100+exp(-(x[i]-mu)^2/(2*sigma^2)) / sqrt(2*pi*sigma^2)
+}
+```
+
+---
+
+`\(\lambda c^j_{i+1} + (1 -  2 \lambda) c_i^j + \lambda c_{i-1}^j = 
+c_i^{j+1}\)` ，由 `\(j\)` 向 `\(j+1\)` 逐步推进，最终确定两个边界条件
+
+
+```r
+for(j in 1:numt) {
+  t[j+1] = t[j] + dt
+  for(i in 2:(numx-1)) {
+*   c[i,j+1] = c[i,j] + (dt/dx^2) * (c[i+1,j]-2*c[i,j]+c[i-1,j])
+  }
+  c[1,j+1] = c[2,j+1]
+  c[numx,j+1] = c[numx-1,j+1]
+}
+```
+
+
+
+--
+
+.pull-left[
+
+&lt;img src="Shun_files/figure-html/unnamed-chunk-5-1.svg" 
+style="display: block; margin: auto;" /&gt;
+随着时间变化，物质因水平扩散逐渐平稳。
+
+]
+
+--
+
+.pull-right[
+
+&lt;img src="Shun_files/figure-html/unnamed-chunk-6-1.svg" 
+style="display: block; margin: auto;" /&gt;
+
+.boldred[缺点]：当 `\(\lambda = \frac{dt \times D}{dx^2} \le \frac{1}{2}\)` 
+不满足时，则显式有限差分.boldred[不稳定]，原地爆炸。
+
+]
+
+---
+
+## 加入对流项
+
+$$
+\frac{\partial c}{\partial t} + U \frac{\partial c}{\partial x} = D 
+\frac{\partial ^2 c}{\partial x^2}
+$$
+
+对流项 `\(U \frac{\partial c}{\partial x}\)` 仍然采用中心差分（注意Chris原文将该项做迎风差分）
+
+`\begin{align}
+c_i^{j+1} = c_i^{j} - \frac{U dt}{2 dx} (c_{i+1}^{j} - c_{i-1}^{j}) + 
+\frac{D dt}{dx^2} (c_{i+1}^{j}-2c_i^{j} + c_{i-1}^{j})
+\end{align}`
+
+初始化及边界条件
+
+``` r
+n = 21
+nstep = 100
+len = 2
+dx = len / (n-1)
+dt = 0.05
+U = 1.2
+D = 0.05
+time = rep(NA, nstep+1)
+x = seq(0, len, dx)
+```
+
+---
+
+class: center, middle
+
+![](Shun_files/figure-html/unnamed-chunk-7-1.gif)&lt;!-- --&gt;
+
+观察这个图，扩散项对流体的物理意义是什么？趋性（对流）项呢？
+
+---
+
+class: middle
+
+## Algal Game控制方程的求解过程
+
+1. 控制方程离散化，扩散项中央差分，趋性项迎风差分（代码中表现为一阶）；
+
+2. 基于高斯函数确定初始藻生物量分布（ `\(b_i^1\)` ），基于底部 `\(R_{in}\)` 
+的营养盐浓度向表层线性衰减确定营养盐初始值分布（ `\(R_i^1\)` ），基于比尔定律和初始藻类分布确定光能的垂向值（ 
+`\(I_i^1\)` ）；
+
+3. 以显式差分形式逐步求解正向时间的 `\(b_i^j\)` , `\(R_i^j\)` , `\(I_i^j\)` ，根据边界条件确定 
+`\(b_0^j\)` , `\(b_{numz}^j\)` , `\(R_0^j\)` 和 `\(R_{numz}^j\)` 。
+
+4. 解译模拟结果，并调整初始参数。
+
+---
+class: middle, inverse, center
+
+# 打岔完毕
+
+# 回归正题
+
+--
+
+![yougotthis](./figs/You-Got-This.gif)
+
+---
+
+### 论文中（如未提及）默认使用的参数表如下
+
+.center[
+
+.size-65[
+
+![parameters](./figs/parameters.png)
+
+]]
+
+
+---
+
+## 再再看一遍控制方程
+
+`\begin{align}
+\frac{\partial{b}}{\partial{t}} =
+\overbrace{\underbrace{\min\{f_I(I), f_R(R)\}b}_{\text{Growth}} -
+\underbrace{mb}_{\text{Loss}}}^\text{Reaction}+
+\underbrace{\overbrace{D_b\frac{\partial^2b}{\partial 
+z^2}}^\text{Diffusion}}_{\text{Passive movement}} +
+\underbrace{\overbrace{\frac{\partial}{\partial z}\Big[\ v \Big( 
+\frac{\partial g}{\partial z}\Big) \Big]}^\text{Taxis}}_\text{Active 
+movement} \tag{1a}
+\end{align}`
+
+`\begin{align}
+\text{with B.C. } {\Big[ D_b \frac{\partial b}{\partial z} + v \Big( 
+\frac{\partial g}{\partial z} \Big) b \Big]}\bigg |_{z=0}  = {\Big[ D_b 
+\frac{\partial b}{\partial z} + v \Big( \frac{\partial g}{\partial z} 
+\Big) b \Big]}\bigg |_{z=z_b}  =  0 \tag{1b}
+\end{align}`
+
+--
+
+`\begin{align}
+\frac{\partial R}{\partial t} = 
+\underbrace{-\frac{b}{Y}\min\{f_I(I), f_R(R)\}}_\text{Uptake} + 
+\underbrace{D_R \frac{\partial ^2 R}{\partial z^2}}_\text{Mixing} + 
+\underbrace{\varepsilon m \frac{b}{Y}}_\text{Recycling}  \tag{1c}
+\end{align}`
+
+`\begin{align}
+\text{with B.C. } \frac{\partial R}{\partial z} \bigg |_{z=0} = 0, 
+\frac{\partial R}{\partial z}\bigg |_{z=z_b} = h(R_{in}-R(z_b)) \tag{1d}
+\end{align}`
+
+--
+
+`\begin{align}
+I(z)=I_{\text{in}}\text{exp}\bigg(-\int_0^z[ab(z)+a_{bg}]dz\bigg) 
+\tag{1e}
+\end{align}`
+
+--
+
+Chris认为，当假设上述变量不随 `\(\partial t\)` 
+发生变化变化时，则认为生物量、营养盐和光照在水柱中达到了某种.boldred[平衡]的状态（.bold[Equilibrium vertical
+ distribution]）。
+
+--
+
+.center[
+.boldred[猜一猜，你觉得有可能平衡吗？]
+]
+
+---
+
+#### 平衡状态下不同浮游速度的生物量，营养盐和光照的垂向分布（A、B、C）
+
+如图A所示，当藻类不主动浮动时，它们基本上在垂向上呈均匀分布的状态（此时 `\(D=10^1~m^2d^{-1}\)` ，处于弱混合状态）。
+
+.center[
+
+.size-90[
+
+![Equilibrium_profiles_1](./figs/Equilibrium_profiles_1.png)
+
+]]
+
+---
+
+#### 平衡状态下不同浮游速度的生物量，营养盐和光照的垂向分布（D、E、F）
+
+随着浮游速度的增加（至 `\(10^3~m~day^{-1}\)` ）时，藻类则逐渐.boldred[聚集到一个非常薄的层]，记为 
+`\(z_l\)` 。
+
+.center[
+
+.size-90[
+
+![Equilibrium_profiles_2](./figs/Equilibrium_profiles_2.png)
+
+]]
+
+---
+
+### 藻类生存博弈论
+
+对弱混合水柱中藻类薄层的现场观察和以上结果表明，我们可以用.boldred[无限薄层]近似地估算浮游植物的分布。（.boldred[相比DCM的
+宽峰，该薄层是否更容易理解的多了？]）
+
+此时假设藻类在 `\(z_l\)` 层形成了无限薄层，令 `\(b(z)=B \delta (z_l)\)` ，其中 `\(\delta 
+(z_l)\)` 是狄拉克函数， `\(B\)` 是.boldred[单位水柱中的柱总生物量]，因此 `\(b(z)\)` 可以表示为：
+
+`\begin{align}
+b(z) = 
+\left\{
+  \begin{array}
+  +\infty , z = z_l \\
+  0, z \ne z_l
+  \end{array}
+\right. \tag{2a}
+\end{align}`
+
+$$
+\int_0^{z_b}b(z)dz=B \tag{2b}
+$$
+
+在博弈论研究中，所有的藻类近乎超人一般飞速的上浮下沉，且无视碰撞体积。由于假设藻类的浮游速度已经远远超过湍（tuan）流的混合作用（即 
+`\(D_b/v_{max} \ll z_b\)`），此时我们设定 `\(D_b = 0\)` 。
+
+--
+
+以无限薄层 `\(z_l\)` 近似藻类的分布位置后简化了藻类对于生存限制因素的响应规律，据此Chris开展了对于藻类生存策略的论述：
+
+.center[.boldred[
+
+### 藻类生存的博弈之《我的公式会说话》  Chris Klausmeier
+
+]]
+
+---
+
+### 藻类生存博弈论
+
+控制方程（1a-e）在略去时间项后，可以由 `\(z_l\)` 与 
+营养盐限制差异对平衡态的生物量做化简（推导过程略），得出以下重要项目的公式结论（其中 `\(\hat{}\)` 表示平衡态下物理量）。
+
+--
+
+平衡态下的营养盐浓度：
+
+`\begin{align}
+\hat{R}(z) = \left\{
+  \begin{array}{lr}
+    \hat{R}(z_l), &amp; 0 \le z \le z_l \\
+    \hat{R}(z_l) + (z-z_l)\frac{R_{in}-\hat{R}(z_l)}{z_b+1/h-z_l}, &amp;
+ z_l &lt; z \le z_b
+  \end{array}
+\right. \tag{A7}
+\end{align}`
+
+&gt; 这个公式在说： `\(\hat{R}\)` 在 `\(z_l\)` 上部为常数，而在其下部则随深度呈线性增加趋势
+
+--
+
+平衡态下的光照：
+
+`\begin{align}
+\hat{I}(z) = \left\{
+  \begin{array}{lr}
+    I_{in}e^{-a_{bg}z}, &amp; 0 \le z \le z_l \\
+    I_{in}e^{-a\hat{B}-a_{bg}z}, &amp; z_l &lt; z \le z_b
+  \end{array}
+\right. \tag{A8}
+\end{align}`
+
+&gt; 光能在 `\(z_l\)` 上部因背景消光呈指数型衰减，经过 `\(z_l\)` 时因藻类消光作用跌落一定数量
+
+---
+
+营养盐限制下的柱总生物量：
+
+`$$\hat{B}=\frac{YD_R(R_{in}-R^*)}{m(1-\varepsilon)(z_b+1/h-z_l)} 
+\tag{A13}$$`
+
+光限制下的柱总生物量
+
+`$$\hat{B} = \frac{\text{log}(I_{in}/I^*)}{a}-\frac{a_{bg}}{a}z_l  
+\tag{A15}$$`
+&gt; `\(b\)` 在薄层的平衡态取决于藻类是.boldred[受营养盐限制还是光照的限制]。
+
+--
+
+&lt;br&gt;
+
+现在，我们知道了在 `\(z_l\)` 处给定的光照和养分的平衡分布，有没有一个深度可以阻止水柱中其他地方的藻类生长呢（ `\(g(z) \le
+ 0\)` ）？
+
+&lt;br&gt;
+
+.center[
+换句话说，有没有一个深度是.boldred[只有藻类能够生长而其他地方却逐渐消亡]的？
+]
+
+---
+
+.center[
+
+.size-80[
+
+![Chris-fig2](./figs/Chris-fig2.png)
+
+]]
+
+回忆一下两种限制因素的空间特性：.boldred[光能从顶部向下逐渐衰减，而营养盐从底部向上逐渐衰减]。因此，对于限制条件的不同，Chris模拟
+了三种情况下平衡态结果：
+
+--
+
+（A）营养盐限制（对于浅型水体）：虽然在 `\(z_l\)` 往上因 `\(R^*\)` 的限制导致藻类无法生长，但 `\(z_l\)` 
+向下营养逐渐增多，此时光照对于藻类也不受限，所以在 `\(z_l\)` 以下的水体.boldred[藻类仍然能够生长]。
+
+
+
+
+---
+
+.center[
+
+.size-80[
+
+![Chris-fig2](./figs/Chris-fig2.png)
+
+]]
+
+（B）光照限制（对于柱体较深）：虽然在 `\(z_l\)` 往下 `\(I^*\)` 的限制导致藻类无法生长，但 `\(z_l\)` 
+向上光照充足，且 `\(R(z \le zl) &gt; R^*\)` 不受营养限制，所以在 `\(z_l\)` 
+以上的水体.boldred[藻类仍然能够生长]。
+
+--
+
+（C）只有在 `\(z_l\)` 层中同时受到光照和营养盐的限制时，藻类才.boldred[只在]该层生长。我们定义（C）情况中的 
+`\(z_l\)` 层为藻类的.boldred[进化稳定策略层]（evolutionary stable strategy layer）记为 
+`\(z^*\)`  。
+
+---
+
+联合公式（A13）与（A15）后可得计算 `\(z^*\)` 深度的公式如下（描述了图C的状态）：
+
+`\begin{align}
+[\text{light-limited biomass}] &amp; = [\text{nutrient-limited biomass}]
+ \\
+\frac{\text{log}(I_{in}/I^* )}{a}-\frac{a_{bg}}{a}z^* &amp; = 
+\frac{YD_R(R_{in}-R^* )}{m(1-\varepsilon)(z_b+1/h-z^*)} \tag{4}
+\end{align}`
+
+该公式说明：对于未处于ESS（进化稳定状态）的水体剖线， `\(z^*\)`的位置是整个藻类群落一个收敛的稳定态。如果 `\(0 &lt; 
+z^* &lt; z_b\)` ，那么藻类的生存对策会导致水柱中形成DCM（深层Chl峰值）。假设藻类不离开水面，若 `\(z^* &lt; 
+0\)` ，则表明该当前水柱在光限制作用下导致藻类向表层 `\(z=0\)` 方向聚拢，最终形成表面水华；若 `\(z^* &gt; 
+z_b\)` ，则表明当前水柱在营养盐限制作用下导致藻类向底层 `\(z=z_b\)` 方向堆积，最终形成底栖（qi）层。
+
+--
+
+上述三种 `\(z^*\)` 分布中，对应了柱总生物量的求解方法如下：
+
+`\begin{align}
+\hat{B}=\left\{
+  \begin{array}{lll}
+    \frac{\text{log}(I_{in}/I^* )}{a}, &amp; z^* \le 0 &amp; 
+(\text{surface layer}) \\
+    \frac{\text{log}(I_{in}/I^* )}{a}-\frac{a_{bg}}{a}z^* = 
+\frac{YD_R(R_{in}-R^* )}{m(1-\varepsilon)(z_b+1/h-z^* )}, &amp; 0 &lt; 
+z^* &lt; z_b &amp; (\text{DCM}) \\
+    \frac{YD_Rh}{m(1-\varepsilon)}(R_{in}-R^* ), &amp; z^* \ge z_b &amp;
+ (\text{benthic layer})
+  \end{array}
+\right. \tag{5}
+\end{align}`
+
+该公式说明，当 `\(z^*\)` 在水表层，生物量的增加与对数变换后的入射光能有关（与沉积物营养盐无关）；而当 `\(z^*\)` 
+在底层时，生物量的增加与底部沉积物营养盐的释放有关（与入射光能无关）。
+
+---
+
+## 进化稳定策略层 `\(z^*\)` 的求解
+
+`\begin{align}
+\frac{\text{log}(I_{in}/I^* )}{a}-\frac{a_{bg}}{a}z^* = 
+\frac{YD_R(R_{in}-R^* )}{m(1-\varepsilon)(z_b+1/h-z^*)} \tag{4}
+\end{align}`
+
+尽管公式（4）中可以解算 `\(z^*\)` 
+，但是没有办法提供更多的信息（我认为Chris想说的是变量之间的相关性）。为了简化公式（4），作者给出了两个限制性假设：.boldred[（1）
+无背景消光]（ `\(a_{bg}=0\)` ）；.boldred[（2）无藻类消光]（ `\(a=0\)` 
+）。在考虑这两个简化的公式（4）后我们再回到完整的公式（4）。
+
+--
+
+.center[.large[.boldred[（1）只考虑藻类光学衰减]]]
+
+此时 `\(a_{bg}=0\)` （.bold[什么样水体？]），公式（4）可以简化为：
+
+`\begin{align}
+z^*=z_b + \frac{1}{h} - 
+\frac{aYD_R(R_{in}-R^*)}{m(1-\varepsilon)\text{log}(I_{in}/I^*)} \tag{6}
+\end{align}`
+
+公式（6）告诉了我们什么？水柱中营养盐的补给主要来源于四个参数： `\(R_{in}\)` （沉积物营养盐）， `\(h\)` （渗透率）， 
+`\(D_R\)` （营养盐扩散系数）， `\(\varepsilon\)` （藻类残体再回收系数）。升高它们任意一个都会导致 
+`\(z^*\)` 的降低，最终导致其接近水表面。反之，增强的表面光照会提高 `\(z^*\)` ，导致更深的藻类峰位置。
+
+---
+
+.center[.boldred[（1）只考虑藻类光学衰减（续）]]
+
+`\begin{align}
+z^*=z_b + \frac{1}{h} - 
+\frac{aYD_R(R_{in}-R^*)}{m(1-\varepsilon)\text{log}(I_{in}/I^*)} \tag{6}
+\end{align}`
+
+其他研究发现，藻类种群中存在对营养盐限制水平更低的类型（低 `\(R^*\)` ），他们可以生成更小的 `\(z^*\)` 
+；同样也有种群对光能的耐受性更强（低 `\(I^*\)` ），导致更深的 `\(z^*\)` 。可以想象，如果 `\(z^* &lt;0\)` 
+，即藻类位于水面以上（同时受光照限制），此时公式（6）满足：
+
+`\begin{align}
+R_{in} &gt; R^* + 
+\frac{m(1-\varepsilon)\text{log}(I_{in}/I^*)}{aYD_R}\big( z_b + 
+\frac{1}{h} \big) \tag{7}
+\end{align}`
+
+公式（7）告诉我们对于.boldred[浅而富营养化的湖泊]（低 `\(z_b\)` 且高 `\(R_{in}\)` ）足以造成表层堆积型藻华。
+
+--
+
+如果 `\(z^* &gt; z_b\)` ，即藻类位于底层（受营养盐限制），此时公式（6）满足：
+
+`\begin{align}
+R_{in} &lt; R^* + \frac{m(1-\varepsilon)\text{log}(I_{in}/I^*)}{haYD_R} 
+\tag{8}
+\end{align}`
+
+--
+
+此时，平衡态的藻类等于：
+
+`\begin{align}
+\hat{B}=\left\{
+  \begin{array}{lll}
+    \frac{\text{log}(I_{in}/I^* )}{a}, &amp; z^* &lt; z_b &amp; 
+(\text{surface layer, DCM}) \\
+    \frac{YD_Rh}{m(1-\varepsilon)}(R_{in}-R^* ), &amp; z^* \ge z_b &amp;
+ (\text{benthic layer})
+  \end{array}
+\right. \tag{9}
+\end{align}`
+
+---
+
+.center[.large[.boldred[（1）只考虑藻类光学衰减（续）]]]
+
+.center[
+.size-60[
+![fig3](./figs/Chris-fig3.png)
+]]
+
+`\begin{align}
+R_{in} &amp; &gt; R^* + 
+\frac{m(1-\varepsilon)\text{log}(I_{in}/I^*)}{aYD_R}\big( z_b + 
+\frac{1}{h} \big) \tag{7} \\
+R_{in} &amp; &lt; R^* + 
+\frac{m(1-\varepsilon)\text{log}(I_{in}/I^*)}{haYD_R} \tag{8}
+\end{align}`
+
+该图说明了营养盐富集对平衡态生物量和 `\(z^*\)` 
+的影响：在清澈的水体中（忽略背景消光），养分富集并不会影响平衡态DCM的生物量，而只会降低 `\(z^*\)` 。
+
+---
+
+.center[.large[.boldred[（2）只考背景光学衰减]]]
+
+此时藻类颗粒并不影响光照的衰减，即 `\(a=0\)` ，平衡态的藻类深度约等于只受背景光学衰减的最大生长深度：
+
+`\begin{align}
+z^* = z_{max} = \frac{\text{log}(I_{in}/I^*)}{a_{bg}} \tag{10}
+\end{align}`
+
+--
+
+公式（10）中，因为 `\(z^* &gt; 0\)` ，所以表面堆积型藻分布需要满足 `\(a \ne 0\)` 
+，与当前假设相矛盾，故不存在此种分布形态。然而，底栖（qi）层藻类峰仍然存在（当 `\(z^*&gt;z_b\)` ），等效于：
+
+`\begin{align}
+a_{bg} &lt; \frac{\text{log}(I_{in}/I^*)}{z_b} \tag{11}
+\end{align}`
+
+--
+
+藻类柱总生物量等于：
+
+.large[
+
+`\begin{align}
+\hat{B} = \left\{
+  \begin{array}{lll}
+    \frac{YD_R(R_{in}-R^* )}{m(1-\varepsilon)\big(z_b + \frac{1}{h} - 
+\frac{\text{log}(I_{in}/I^* )}{a_{bg}}\big)}, &amp; 0 &lt; z^* &lt; z_b 
+&amp; (\text{DCM}) \\
+    \frac{YD_Rh}{m(1-\varepsilon)(R_{in}-R^* )}, &amp; z^* \ge z_b &amp;
+ (\text{benthic layer})
+  \end{array}
+\right. \tag{12}
+\end{align}`
+
+]
+
+---
+
+.center[.large[.boldred[（2）只考背景光学衰减（续）]]]
+
+.center[
+.size-70[
+![fig4](./figs/Chris-fig4.png)
+]]
+
+`\begin{align}
+a_{bg} &lt; \frac{\text{log}(I_{in}/I^*)}{z_b} \tag{11}
+\end{align}`
+
+该图说明了背景衰减对平衡态藻生物量和 `\(z^*\)` 的影响：增加背景衰减可以防止底栖（qi）层的出现，同时减少柱总生物量浓度。
+
+---
+
+.center[.large[.boldred[（3）藻颗粒和背景光学衰减都考虑时]]]
+
+都考虑时，公式（4）和（5）变得很复杂，Chris使用差分法讨论其他因素对 `\(z^*\)`  ， 
+`\(\hat{B}_\text{surface layer}\)` ， `\(\hat{B}_\text{DCM}\)` ， 
+`\(\hat{B}_\text{benthic layer}\)` 的影响。
+
+
+&lt;table class="table table-hover" style="font-size: 13px; width: auto 
+!important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:center;"&gt; \(\text{Increase}\) &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; \(z^*\) &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; \(\hat{B}_\text{surface 
+layer}\) &lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; \(\hat{B}_\text{DCM}\) 
+&lt;/th&gt;
+   &lt;th style="text-align:center;"&gt; \(\hat{B}_\text{benthic 
+layer}\) &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: black !important;font-size: 
+small;"&gt;\(I_{\text{in}}\)表面光照&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: green !important;font-size: 
+small;"&gt;Increases&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: green !important;font-size: 
+small;"&gt;Increases&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: green !important;font-size: 
+small;"&gt;Increases&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: NULL !important;font-size: 
+small;"&gt;---&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: black !important;font-size: 
+small;"&gt;\(I^*\)最低光照&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: red !important;font-size: 
+small;"&gt;Decreases&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: red !important;font-size: 
+small;"&gt;Decreases&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: red !important;font-size: 
+small;"&gt;Decreases&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: NULL !important;font-size: 
+small;"&gt;---&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: black !important;font-size: 
+small;"&gt;\(a\)藻比消光&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: red !important;font-size: 
+small;"&gt;Decreases&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: red !important;font-size: 
+small;"&gt;Decreases&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: red !important;font-size: 
+small;"&gt;Decreases&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: NULL !important;font-size: 
+small;"&gt;---&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: black !important;font-size: 
+small;"&gt;\(Y\)吸收率&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: red !important;font-size: 
+small;"&gt;Decreases&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: NULL !important;font-size: 
+small;"&gt;---&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: green !important;font-size: 
+small;"&gt;Increases&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: green !important;font-size: 
+small;"&gt;Increases&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: black !important;font-size: 
+small;"&gt;\(D_R\)扩散系数&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: red !important;font-size: 
+small;"&gt;Decreases&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: NULL !important;font-size: 
+small;"&gt;---&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: green !important;font-size: 
+small;"&gt;Increases&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: green !important;font-size: 
+small;"&gt;Increases&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: black !important;font-size: 
+small;"&gt;\(R_{\text{in}}\)沉积物磷&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: red !important;font-size: 
+small;"&gt;Decreases&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: NULL !important;font-size: 
+small;"&gt;---&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: green !important;font-size: 
+small;"&gt;Increases&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: green !important;font-size: 
+small;"&gt;Increases&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: black !important;font-size: 
+small;"&gt;\(R^*\)最低磷&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: green !important;font-size: 
+small;"&gt;Increases&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: NULL !important;font-size: 
+small;"&gt;---&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: red !important;font-size: 
+small;"&gt;Decreases&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: red !important;font-size: 
+small;"&gt;Decreases&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: black !important;font-size: 
+small;"&gt;\(z_b\)水柱总深&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: green !important;font-size: 
+small;"&gt;Increases&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: NULL !important;font-size: 
+small;"&gt;---&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: red !important;font-size: 
+small;"&gt;Decreases&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: NULL !important;font-size: 
+small;"&gt;---&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: black !important;font-size: 
+small;"&gt;\(h\)底部渗透率&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: red !important;font-size: 
+small;"&gt;Decreases&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: NULL !important;font-size: 
+small;"&gt;---&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: green !important;font-size: 
+small;"&gt;Increases&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: green !important;font-size: 
+small;"&gt;Increases&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: black !important;font-size: 
+small;"&gt;\(a_{bg}\)背景消光&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: red !important;font-size: 
+small;"&gt;Decreases&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: NULL !important;font-size: 
+small;"&gt;---&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: red !important;font-size: 
+small;"&gt;Decreases&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: NULL !important;font-size: 
+small;"&gt;---&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: black !important;font-size: 
+small;"&gt;\(\varepsilon\)回收率&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: red !important;font-size: 
+small;"&gt;Decreases&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: NULL !important;font-size: 
+small;"&gt;---&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: green !important;font-size: 
+small;"&gt;Increases&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: green !important;font-size: 
+small;"&gt;Increases&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: black !important;font-size: 
+small;"&gt;\(m\)损失率&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: blue !important;font-size: small;"&gt;In. 
+for small m&lt;br&gt;De. for large m&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: red !important;font-size: 
+small;"&gt;Decreases&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: red !important;font-size: 
+small;"&gt;Decreases&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:center;width: 2in; "&gt; &lt;span style=" 
+font-weight: bold;    color: red !important;font-size: 
+small;"&gt;Decreases&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+.center[.large[.boldred[（3）藻颗粒和背景光学衰减都考虑时（续）]]]
+
+总的来说：
+
+1. 光照等级的增加（无论是增加 `\(I_{in}\)` 还是降低漫衰减系数 `\(a\)` 和 `\(a_{bg}\)` ）或 
+增加光照利用的竞争能力（即降低 `\(I^*\)` ）会导致更深的 `\(z^*\)` ；
+
+2. 增加营养盐补给（无论是增加 `\(R_{in}\)` ， `\(D_R\)` ， `\(h\)` 还是 `\(\varepsilon\)`
+ ）或提高营养利用的竞争能力（即降低 `\(R^*\)` ）会导致 `\(z^*\)` 向表层方向移动。
+
+3. 水柱深度（ `\(z_b\)` ）的增加会导致更深的 `\(z^*\)` ，接近由背景衰减确定的最大可能深度 `\(z_{max}\)` ；
+
+4. DCM的柱总生物量随竞争能力（ `\(R^*\)` 和 `\(I^*\)` ）和两种资源的供应能力的增加而增加，且随水柱深度增加而减少。
+
+.small[
+
+`\begin{align}
+\frac{\text{log}(I_{in}/I^* )}{a}-\frac{a_{bg}}{a}z^* = 
+\frac{YD_R(R_{in}-R^* )}{m(1-\varepsilon)(z_b+1/h-z^*)} \tag{4}
+\end{align}`
+
+`\begin{align}
+\hat{B}=\left\{
+  \begin{array}{lll}
+    \frac{\text{log}(I_{in}/I^* )}{a}, &amp; z^* \le 0 &amp; 
+(\text{surface layer}) \\
+    \frac{\text{log}(I_{in}/I^* )}{a}-\frac{a_{bg}}{a}z^* = 
+\frac{YD_R(R_{in}-R^* )}{m(1-\varepsilon)(z_b+1/h-z^* )}, &amp; 0 &lt; 
+z^* &lt; z_b &amp; (\text{DCM}) \\
+    \frac{YD_Rh}{m(1-\varepsilon)}(R_{in}-R^* ), &amp; z^* \ge z_b &amp;
+ (\text{benthic layer})
+  \end{array}
+\right. \tag{5}
+\end{align}`
+
+]
+
+---
+
+对于藻类消亡率（ `\(m\)` ）而言， `\(z^*\)` 的计算更为复杂（因为 `\(m\)` 的变化直接导致 `\(R^*\)` 和 
+`\(I^*\)` 的变化，这两者对 `\(z^*\)` 是相反的作用）。
+
+尽管 `\(m\)` 对生物量和 `\(z^*\)` 的影响并未得到公式证明（它不像 `\(a\)` 或 `\(a_{bg}\)` 
+项那样可以做简化），但Chris的数值模拟结果表明， `\(z^*\)` 首先随低值的 `\(m\)` 
+增加而增加，即藻类消亡速率增加后降低了生物量，使得更多的光进入更深的水体，使得藻类可生长的深度逐渐降低；随后，则逐渐随高值 `\(m\)` 
+的增加而衰减，此时更高的 `\(m\)` 意味着藻类需要更多的光照得以生存。柱总生物量 `\(\hat{B}\)` 随 `\(m\)` 
+增加而逐渐降低。
+
+.center[
+.size-50[
+![fig5](./figs/Chris-fig5.png)
+]]
+
+---
+
+.center[
+.size-50[
+![fig6](./figs/Chris-fig6.png)
+]]
+
+.small[
+
+`\begin{align}
+\frac{\text{log}(I_{in}/I^* )}{a}-\frac{a_{bg}}{a}z^* = 
+\frac{YD_R(R_{in}-R^* )}{m(1-\varepsilon)(z_b+1/h-z^*)} \tag{4}
+\end{align}`
+
+图A中为解公式（4） `\(R_{in}\)` 与 `\(a_{bg}\)` 在不同 `\(z^*\)` 的响应关系。
+
+`\begin{align}
+\hat{B}=\left\{
+  \begin{array}{lll}
+    \frac{\text{log}(I_{in}/I^* )}{a}, &amp; z^* \le 0 &amp; 
+(\text{surface layer}) \\
+    \frac{\text{log}(I_{in}/I^* )}{a}-\frac{a_{bg}}{a}z^* = 
+\frac{YD_R(R_{in}-R^* )}{m(1-\varepsilon)(z_b+1/h-z^* )}, &amp; 0 &lt; 
+z^* &lt; z_b &amp; (\text{DCM}) \\
+    \frac{YD_Rh}{m(1-\varepsilon)}(R_{in}-R^* ), &amp; z^* \ge z_b &amp;
+ (\text{benthic layer})
+  \end{array}
+\right. \tag{5}
+\end{align}`
+
+图B中为公式（5）中对应的平衡态柱总生物量。
+
+除 `\(a_{bg} = 0\)` 时，生物量随 `\(R_{in}\)` 而增加直到 `\(z^*\)` 到达水表层。注意， 
+`\(z^*\)` 到达水表层时， `\(R_{in}\)` 与 `\(a_{bg}\)` 无关。
+
+]
+
+---
+
+.center[
+.size-50[
+![fig7](./figs/Chris-fig7.png)
+]]
+
+.smallest[
+
+`\begin{align}
+R_{in} &amp; &gt; R^* + 
+\frac{m(1-\varepsilon)\text{log}(I_{in}/I^*)}{aYD_R}\big( z_b + 
+\frac{1}{h} \big) \tag{7} \\
+R_{in} &amp; &lt; R^* + 
+\frac{m(1-\varepsilon)\text{log}(I_{in}/I^*)}{haYD_R} \tag{8} \\
+a_{bg} &amp; &lt; \frac{\text{log}(I_{in}/I^*)}{z_b} \tag{11}
+\end{align}`
+
+]
+
+.small[
+
+该图简述了 `\(R_{in}\)` 和 `\(a_{bg}\)` 
+对水柱垂向分布的影响（其中7、8、11点对应各自公式）：当营养水平很高时，总会形成Surface 
+layer（此时为光限制）；当营养水平很低时（刚满足藻类生长需要），低浊度的水体会形成Benthic layer；除此外，水柱中会形成DCM。
+
+DCM最有可能在深水柱中，因为增加 `\(z_b\)` 会使点（7）向右移动，而点（11）向下移动，从而增加了导致DCM的参数空间的大小。
+
+]
+
+---
+
+## 讨论 --- 1. 模型预测
+
+Chris的Algal Game模型成功地复制了弱混合条件下藻类主要的分布模式，例如Surface layer，DCM和Benthic 
+layer三种。该模型也产生了许多重要的关系（那张红绿的表），一部分关系已经被自然水体充分证明，而也有一些关系为确定藻类分布的因素提供了新的见
+解。
+
+--
+
+.boldred[第一个预测]是，具有调节深度功能的浮游植物会在弱混合的水柱中形成薄层，这一结果已经有广泛的经验观测作为支持（略），同时这也激发
+了Chris从博弈论角度去考虑藻类垂向分布的状态。Algal Game模型结果表明，湍流程度（D）决定了DCM的厚度。Fee 
+（1976）在面积较小且混合较弱的湖泊中（D约为 `\(10^{-3}\)` 或 `\(10^{-2}~m^2 d^{-1}\)` 
+）观察到了极为薄的水层（几到十几厘米）；而在扩散系数更高的水体中（如 Abbott等1984在Lake Tahoe观测的 `\(10^1~m^2
+ d^{-1}\)` ），DCM厚度可达10-20 m。
+
+--
+
+.boldred[第二个预测]是，限制藻类生长的营养盐物质浓度在藻类层上方恒定，并随着该层下方的深度呈线性增加。该预测结果与之前已有研究的结论一
+致（略），其正如Cullen（1982）指出的那样，“DCM实际上可以确定营养盐跃层的位置。”
+
+---
+
+.boldred[第三个预测]是，DCM或Surface layer以下的光照水平是收支平衡的光照水平（即 `\(I^*\)` 
+）。这是因为ESS深度（即 `\(z^*\)` 
+）是藻类受光照与营养盐共同限制的结果，在该深度除水柱的背景光衰减外，还存在藻类聚集后自身对光照遮蔽的作用。
+
+--
+
+.boldred[第四个预测]是，通过求解公式（4）和（5）计算了平衡态下的藻类峰值深度与柱总生物量。最普遍的结果为下图所示。
+
+.pull-left[
+
+在浅水区（小 `\(z_b\)` ），贫营养区（小 `\(R_{in}\)` ）和清澈水（小 `\(a_{bg}\)` ）主要存在为底栖层；
+
+在深水（大 `\(z_b\)`）中主要为DCM层；
+
+在浅水，富营养化（大 `\(R_{in}\)` ）水域中出现藻华堆积型剖线。
+
+]
+
+.pull-right[
+
+.center[
+
+![fig7](./figs/Chris-fig7.png)
+]
+
+]
+
+--
+
+.boldred[第五个预测]涉及不同深度藻类的资源限制。模型分析表明，表层堆积型垂向分布受光限制，底栖层分布受营养盐限制，DCM分布受两种资源
+共同限制。.boldred[表层堆积型的剖线不可能存在营养盐限制，否则的话，藻类会移动到更深处的水层（那里拥有更多的营养盐）]。而当底栖层发生
+时，Algal Game模型暗示藻类控制着营养盐物质从沉积物中到水柱中的流量。
+
+---
+
+## 讨论 --- 2. 与其他模型的对比
+
+.boldred[竞争关系模拟的全新版本]：Huisman和Weissing（1994和1995）的模型考虑了高度混合水柱中藻类关于营养盐和光能
+的竞争关系，其中生物量和营养盐假设为在水柱中均匀分布，而光能则随深度呈指数衰减。对于光竞争能力的表达，他们的模型中以到达水柱底部的光（ 
+`\(I_{out}\)` ）衡量藻类对光能的竞争能力。而Chris的模型是利用表面入射辐照度（ `\(I_{in}\)` ）和 
+`\(I^*\)` 来衡量的。
+
+--
+
+.boldred[限制因素的全新版本]：Huisman的模型将光照作为唯一的限制性因素，并认为如果藻类没有沉降作用时，肯定随深度而逐渐降低；而只
+有当藻类存在沉降时才会存在DCM。Britton和Timm（1993）的模型也得出了相似的结论。相反，Chris的模型不需要考虑考虑沉降的作用，
+同样也能在光照限制条件下预测出DCM以及表层堆积的剖线分布。
+
+--
+
+Chris的模型中没有考虑扩散系数D的深度变异性（即目前它是一个常数），但是只要在 `\(z^*\)` 处满足弱混合的基本假设，则Algal 
+Game模型的预测是准确的。这同时也说明了一个事实，即.boldred[低风速和因此导致的弱混合作用是生成表层堆积藻类剖线的先决条件]。
+
+---
+
+### 讨论 --- 3. Algal Game模型未涉及的因素
+
+
+
+- 氧气状态通常随深度变化，对生物区系和营养动态产生重大影响；
+
+- 还不包括光抑制，可变的配额和对养分的奢侈摄取以及与深度相关的草食动物；
+
+- 此外，养分只能通过混合沉淀物或立即回收来提供；实际上，整个水柱中都可以提供营养盐；
+
+- 浮游生物质的湍流混合也会影响浮游植物的分布；
+
+对该模型的扩展以包括所有这些过程将进一步发展我们对浮游植物群落垂直结构的理解。
+
+
+
+
+---
+
+### 为什么我推荐这篇文章？
+
+最初的原因在于它有一个非常有趣的名字`Algal 
+Game`，而实际上它将营养盐和光照作为藻类生长双重限制因素的建模过程更为有趣，尤其是对于藻类运动过程的区分描述。
+
+--
+
+.boldred[简单来说，我就是馋他的模型。]
+
+--
+
+Chris说：
+
+&gt; .boldred[The program is available] from the first author.
+
+--
+
+这真是天大的好事。
+
+--
+
+然后我就很激动地写邮件问他要了，结果发过来的一份**超过20岁的、没有一行注释的、所有变量全靠猜（他承认大部分变量他也不记得了）、存在好几个无法
+修复的`typo`错误的**Fortran代码。最终我放弃了，我只好按照他提供的参数表和控制方程用`R`重新写了一遍（这期间又得重新恶补差分的数
+学知识）。
+
+--
+
+接着我发现他的数值模拟中所用的`显式差分法`.boldred[存在稳定性很差的问题]，而他给我的每一封回信中都让我用Huisman的
+`method of 
+line`（另一种PDE解法：只离散空间变量，保持时间变量连续），同时劝我放弃使用他陈旧的代码。直到我调参了很多次都无法保证`Algal 
+Game`在初期阶段保持稳定时，我终于忍不住去看他推荐的Huisman的论文。
+
+---
+
+### 为什么我推荐这篇文章？
+
+结果，Huisman（2002）指出了某些研究中求解控制方程的一些问题（虽然并未明说，但应该是Chris的）：
+
+--
+
+&gt; We warn that such numerical artefacts can easily occur if the time 
+integration of .boldred[[a  stiff 
+ODE](https://www.youtube.com/watch?v=GuyUuJETkZk)] is not carefully 
+performed.
+
+--
+
+&gt; However, explicit methods have a .boldred[serious disadvantage] for
+ stiff ODE systems, because they are forced to take very small time 
+steps in order to avoid numerical instabilities.
+
+--
+
+Chris所构建的控制方程是典型的刚性（stiff）方程，即时间步长和空间步长存在不协同的现象（譬如，长时间不发生变化的系统但取了很短的时间间
+隔）；
+
+
+--
+
+.pull-left[
+
+同时，对于藻类主动运动的速率由分段函数确定，这直接导致了在高 `\(v_{max}\)` 
+设置下前期模拟出现很强的扰动性。这也可能是他重点在于分析.boldred[平衡状态]的原因，如果按这个思路，这样确定藻类游动速率也不成问题。我如
+果直接用平衡态的剖线做模拟，也不成问题。
+
+]
+
+.pull-right[
+&lt;img src="Shun_files/figure-html/unnamed-chunk-9-1.svg" 
+style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+class: center, middle
+
+.size-50[
+![huisman-fig2](./figs/Huisman-fig2.png)
+]
+
+除此之外，Huisman指出对于低阶的趋性项差分往往造成虚假的扩散结果（false diffusion）
+
+---
+class: center, middle
+
+![Chris_result](./figs/Chris_result.gif)
+
+
+---
+
+### 为什么我推荐这篇文章？
+
+抛开数值模拟的方法而言，Chris将.boldred[博弈论分析引入]了双源限制的藻类垂向分布模型，非常巧妙的证明和描述了弱混合状态下水柱中三种
+垂向分布的形成因素（水体和环境的物理量等）。这是我看Huisman中没有做到的一些工作。
+
+--
+
+于我而言，Chris所构建的控制方程基本满足了对于确定水体垂向分布的数值模拟要求以及构建CIB模型时假设的先验条件。
+
+譬如，发生藻华的弱混合水柱其垂向中部必然不会存在与表层相当的藻生物量（因为其必然是富营养化且受光限制的作用），.boldred[水华剖线的规律性
+在数值模拟中得到了证实]。
+
+--
+
+这篇文章让我克服了对数值模拟的恐惧，实际上一些简易的模型仍然可以自己手动搭建（.boldred[如果你感兴趣要不要也试着自己算一算例子中的扩散方
+程？真是太有趣了]）。
+
+--
+
+&lt;br&gt;
+
+.center[
+
+## [Algal Game 完]
+
+]
+
+
+---
+
+class: center, middle, inverse
+
+# Content
+
+### Algal game
+
+### .boldred[利用git实现版本控制]
+
+### Markdown写作
+
+### 开源项目
+
+---
+
+class: center, middle
+
+![Pain_of_version_control](./figs/pain of version control.png)
+
+#### 被版本支配的恐惧？
+
+#### 又或者常常认为现在的写的这一版比上一版写的还好？
+
+#### 多人修改统一文件时混乱的时间线？
+
+---
+
+class: center, middle
+
+# 那你为什么不试试用git？
+
+---
+
+## git是什么？
+
+git是一个分布式.boldred[版本控制]软件
+
+## 常用的git访问服务
+
+.pull-left[
+
+Github
+
+.size-50[ ![github](./figs/github.png) ]
+
+Google Code
+
+.size-50[ ![googlecode](./figs/googlecode.png) ]
+
+]
+
+.pull-right[
+
+SourceForge
+
+.size-30[ ![SourceForge](./figs/sourceforge.png) ]
+
+GitLab
+
+.size-60[ ![GitLab](./figs/gitlab.png) ]
+
+]
+
+
+---
+
+.center[
+.size-60[
+
+![github_page](./figs/github_page.png)
+
+]]
+
+.center[
+Github的仓库页面：.boldred[Code, Issues, Pull requests, Wiki, Insights]
+]
+
+---
+
+.center[
+.size-70[
+
+![github_versioncontrol](./figs/github_versioncontrol.png)
+
+]]
+
+.center[
+所有的提交都会被记录在案，再也不用担心历史追溯的问题（甚至是错误）
+]
+
+---
+
+.center[
+.size-70[
+
+![github_diff](./figs/github_diff.png)
+
+]]
+
+.center[
+查看新旧文件的不同，并可以针对.boldred[所有修改细节]进行评述留言。
+]
+
+---
+
+.center[
+.size-70[
+
+![github_issue](./figs/github_issue.png)
+
+]]
+
+### issue
+
+对当前项目中存在的问题提出意见，类似于备忘录
+
+如果在别人的仓库中发现问题也可以在issue中给出意见，一般比直接email的回应更迅速
+
+
+
+---
+
+.center[
+.size-70[
+
+![github_desktop](./figs/github_desktop.png)
+
+]]
+
+
+
+windows或mac系统中可以通过`Github Desktop`软件轻松实现仓库的创建、克隆、提交、比较等一系列操作。
+
+同样也支持历史记录的查看，便于你控制当前仓库中所有资料的版本。
+
+
+---
+
+### Github是如何工作的？
+
+初始化仓库，将文件与数据加载至工作路径
+
+.center[
+![gitwork1](./figs/gitwork/capture_intro1_2_1.png)
+]
+
+多终端与云端的同步（pull到本地，push到云端）
+
+
+.center[
+.size-65[
+
+![gitwork2](./figs/gitwork/capture_intro1_2_2.png)
+
+]]
+
+---
+
+### 线程、分支与合并
+
+单线程历史管理
+
+.center[
+![gitwork3](./figs/gitwork/capture_intro1_3_1.png)
+]
+
+但实际上，任何一个项目都存在分岔路口。比如在某一个节点上的存在多种开发思路，或者是修复部分的内容，又或是对当前主线中做大部分修改的一个备份等等。
+
+git中提供了分支（branch）的功能以满足上述的需求。
+
+---
+
+### 线程、分支与合并
+
+在节点A初始化仓库，在节点B分化为三个分支用于不同的功能。
+
+.center[
+![gitwork4](./figs/gitwork/capture_stepup1_1_1.png)
+]
+
+这些分叉出去的线程，有的最终被抛弃，有的最终被合并进主线（master）。需要向主线合并的分支需要向主线需要提交申请（merge 
+request）。
+
+---
+
+### 线程、分支与合并
+
+.center[
+
+.size-55[
+
+![gitwork5](./figs/gitwork/capture_stepup1_1_2.png)
+
+]]
+
+分支的存在使得项目推进时不必遵循线性的操作过程，新增的需求可以跳过当前主线的进度直接向后推进，最终再与主线汇合；
+
+同时，分支也能够保证在团队项目中能够明确合作者的分工内容。
+
+
+---
+
+### 注意事项
+
+1. 本地化建立git仓库也需要备份文件；
+
+2. 使用如GitHub服务端需要注意.boldred[公共]与.boldred[私有]仓库的区别；
+
+3. 一定要在第一次初始化云端git仓库时确保.boldred[可忽略]的文件，一般在`.gitignore`中设置；
+
+--
+
+4. 可忽略的文件包括：本地关键数据、个人关键信息、容量较大的本地文件等；
+
+5. 
+代码做云端git托管时记得ignore一些编译器中的临时变量文件，如`R`中的`.rData`文件（它会包括你上一次环境中运行的所有数据）；
+
+6. 在你没有弄懂GitHub的工作之前，请尝试一些测试用的仓库或文件，.boldred[注意数据安全]；
+
+--
+
+7. 遵守License协议，在别人的仓库中确保你有完全或部分的权限使用别人的资料。
+
+--
+
+&lt;br&gt;
+
+.center[
+
+## 拥抱开源
+
+]
+
+
+---
+
+### 参考资料
+
++ [git官网](https://git-scm.com/)
+
++ 
+[连猴子都能懂的Git入门指南](https://backlog.com/git-tutorial/tw/intro
+/intro1_1.html)
+
+  - 本节主要图片的参考来源。
+
++ [这一次汇报的repo](https://github.com/bishun945/algalgames) 
+    
+  - 当然，这目前还是private的仓库，哈哈。
+
+---
+
+class: center, middle, inverse
+
+# Content
+
+### Algal game
+
+### 利用git实现版本控制
+
+### .boldred[Markdown写作]
+
+### 开源项目
+
+---
+
+### 什么是markdown
+
+markdown是一种轻量级标记语言，相比html更易读易写。
+
+.smaller[
+
+``` html
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;测试页面&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Mozilla 酷毙了！&lt;/h1&gt;
+    &lt;img src="images/firefox-icon.png" alt="Firefox 
+标志：一只盘旋在地球上的火狐"&gt;
+    &lt;p&gt;Mozilla 是一个全球社区，这里聚集着来自五湖四海的&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;技术人员&lt;/li&gt;
+      &lt;li&gt;思考者&lt;/li&gt;
+      &lt;li&gt;建造者&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;p&gt;我们致力于让 Internet 
+保持活力，保持畅通，人人皆可贡献，人人皆可创造。我们坚信：开放平台的协作对于人的发展至关重要，也决定着我们共同的未来。&lt;/p&gt;
+    &lt;p&gt;为了达成我们共同的理想，我们遵循一系列的价值观和理念，请参阅 &lt;a 
+href="https://www.mozilla.org/zh-CN/about/manifesto/"&gt;Mozilla 
+宣言&lt;/a&gt;。&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+```
+
+]
+
+---
+
+从html语言翻译过来就是：
+
+![html_demo](./figs/html_demo.png)
+
+---
+
+### 为什么用markdown写作？
+
+.boldred[更少关注格式的问题，纯粹的专注于文字本身。]
+
+拓展性强。`R`、`Python`、`Java`等等都支持`markdown`式的写作，即一边描述一边写代码。
+
+以`Rmarkdown`为例，其有丰富的可支持转化格式，包括`word`、`html`、`pdf`、`pptx`等等。
+
+--
+
+`Rmarkdown`有多样化的模板，不仅仅是出稿件，更可以制作网页、幻灯片、app，甚至是写书。
+
+我目前基于`bookdown`，`officedown`，`officer`和`flextable`等工具包进行毕业论文的写作。
+
+2020年Rstudio全球论坛中Xie展示了[Magic of 
+Rmarkdown](https://www.youtube.com/watch?v=qLEkUjxk7e8)：一份Rmarkdown文件，14
+种输出格式。
+
+---
+
+.pull-left[
+
+### 一些基本语法
+
+``` r
+# 一级标题
+
+## 二级标题
+
+### 三级标题
+
++ 列表1
+
++ 列表2
+
+  - 子列表
+
+&gt; 这是一段引文
+
+这是一个**加粗**，这是一个*斜体*
+
+用css给一个.red[红色]
+
+这是一个简单的行内公式
+
+$f(x) = \int_a^be^xdx$
+
+```
+
+
+]
+
+.pull-right[
+
+# 一级标题
+
+## 二级标题
+
+### 三级标题
+
++ 列表1
++ 列表2
+  - 子列表
+
+&gt; 这是一段引文
+
+这是一个**加粗**，这是一个*斜体*
+
+用css给一个.red[红色]
+
+这是一个简单的行内公式 `\(f(x) = \int_a^be^xdx\)`
+
+]
+
+---
+
+## 帮助链接
+
++ [Markdown中文文档](https://markdown-zh.readthedocs.io/en/latest/)
+
++ [Rstudio Rmarkdown 
+introduction](https://shiny.rstudio.com/articles/rmarkdown.html)
+
++ [How to build an interactive documents with 
+`Shiny`](https://shiny.rstudio.com/articles/interactive-docs.html)
+
++ [An online latex editor](https://www.overleaf.com)
+
+## 2020Rstudio大会
+
++ [Magic of Rmarkdown - Yihui 
+Xie](https://www.youtube.com/watch?v=qLEkUjxk7e8)
+
++ [How Rmarkdown changed my life - Rob 
+Hyndman](https://www.youtube.com/watch?v=_D-ux3MqGug)
+
+---
+
+class: center, middle, inverse
+
+# Content
+
+### Algal game
+
+### 利用git实现版本控制
+
+### Markdown写作
+
+### .boldred[开源项目]
+
+---
+
+.center[
+.size-60[
+
+![FCMm](./figs/proj_fcmm.png)
+
+]]
+
+[`FCMm`](https://github.com/bishun945/FCMm)除了做`光谱聚类`，它还包括了：`开源遥感数据集`、
+`SRF模拟`、`误差指标计算`、`Bootstrap算法评估`、`影像处理`和`Chla算法`等等。
+
+---
+
+.center[
+.size-80[
+![DAMATO](./figs/proj_damato.png)
+]]
+
+.boldred[DA]ta .boldred[MA]nagement 
+.boldred[TO]olbox（[DAMATO](https://github.com/bishun945/DAMATO)）主要用于野外实测
+数据集质量的检控
+
+---
+
+.pull-left[
+
+#### `DAMATO`(v0.0.7)支持的功能：
+
+.small[
+
+.boldred[检查类]
+
+基本参数表检核 `Check_base_info`
+
+经纬度记录的坐标检核 `Check_geo_location`
+
+工作簿名称检核  `Check_sheet_name`
+
+通用编号一致性检核 `Check_sample_id`
+
+
+.boldred[初始化]
+
+生成文件路径 `Generate_ref_folders`
+
+生成Excel空白文件 `Generate_ref_spread`
+
+]
+
+&lt;style&gt;
+.leaflet {
+    margin: auto;
+}
+&lt;/style&gt;
+
+&lt;div id="htmlwidget-b4f213c163edf38c6b07" 
+style="width:350px;height:250px;" class="leaflet 
+html-widget"&gt;&lt;/div&gt;
+&lt;script type="application/json" 
+data-for="htmlwidget-b4f213c163edf38c6b07"&gt;{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"©
+ &lt;a href=\"http://openstreetmap.org\"&gt;OpenStreetMap&lt;\/a&gt; 
+contributors, &lt;a 
+href=\"http://creativecommons.org/licenses/by-sa/2.0/\"&gt;CC-BY-SA&lt;\/a&gt;"}]},{"method":"addScaleBar","args":[{"maxWidth":100,"metric":true,"imperial":true,"updateWhenIdle":true,"position":"topright"}]},{"method":"addCircleMarkers","args":[[31.3338888888889,31.34609,31.1836111111111,31.3205555555556,30.942419,31.3113888888889,31.4825,31.056933,31.060821,31.2072222222222,31.2852777777778,31.20173,31.3963888888889,31.4169444444444,31.273692,31.2444444444444,31.122985,30.998519,31.128377,31.12614,31.3561111111111,31.2697222222222,31.2086111111111,31.0494471,31.3569444444444,31.4355555555556,31.147428,30.97791,31.2380555555556,31.3969444444444,31.2775,31.087123,30.9707,30.979904,31.3633333333333,31.1816666666667,31.255,31.230895,31.1991666666667,31.3094444444444,30.990517,30.998273,31.015458,31.074933,31.110163],[120.035277777778,120.187785,119.971111111111,119.931666666667,120.126921,119.953888888889,120.173611111111,120.035486,120.133783,120.138333333333,120.108055555556,120.249485,120.029722222222,120.173888888889,120.21371,119.961666666667,119.993931,120.15203,120.074587,120.15232,120.110277777778,120.031388888889,120.050277777778,120.200604,120.250277777778,120.384166666667,120.374292,120.225482,120.337222222222,120.321111111111,120.275277777778,120.332107,120.308375,120.384655,120.335833333333,120.410555555556,120.286388888889,120.110222222222,120.093611111111,119.9575,120.195035,120.429949,120.436075,120.495151,120.429328],2,null,null,{"interactive":true,"className":"","stroke":true,"color":"red","weight":5,"opacity":0,"fill":true,"fillColor":"red","fillOpacity":1},null,null,null,null,["201912THL1_1","201912THL2_1","201912THL3_1","201912THL4_1","201912THL5_1","201912THL6_1","201912THL7_1","201912THL8_1","201912THL9_1","201912THL10_1","201912THL11_1","201912THL12_1","201912THL13_1","201912THL14_1","201912THL15_1","201912THL16_1","201912THL17_1","201912THL18_1","201912THL19_1","201912THL20_1","201912THL21_1","201912THL22_1","201912THL23_1","201912THL24_1","201912THL25_1","201912THL26_1","201912THL27_1","201912THL28_1","201912THL29_1","201912THL30_1","201912THL31_1","201912THL32_1","201912THL33_1","201912THL34_1","201912THL39_1","201912THL40_1","201912THL41_1","201912THL100_1","201912THL101_1","201912THL103_1","201912THL200_1","201912THL400_1","201912THL401_1","201912THL402_1","201912THL403_1"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"9px","textOnly":true,"className":"","sticky":true},null]}],"setView":[[31.2072222222222,120.173888888889],9,[]],"limits":{"lat":[30.942419,31.4825],"lng":[119.931666666667,120.495151]}},"evals":[],"jsHooks":[]}&lt;/script&gt;
+
+]
+
+.pull-right[
+
+####
+ 当前开发和计划功能
+
+.small[
+
+.boldred[可视化]
+
+基于`shinny`开发带dashboard的交互式检核app；
+
+确定`rmarkdown`报告格式（输入检核完成的Excel，输出ppt或html报告）；
+
+.boldred[数据格式]
+
+定义野外数据专属的数据class；
+
+人机交互式的质量标签（基于`shinny`交互）
+
+]
+
+&lt;div id="htmlwidget-a5c41c0dacd138925e77" 
+style="width:350px;height:250px;" class="plotly 
+html-widget"&gt;&lt;/div&gt;
+&lt;script type="application/json" 
+data-for="htmlwidget-a5c41c0dacd138925e77"&gt;{"x":{"data":[{"x":[400,412.5,442.5,490,510,560,620,665,673.75,681.25,708.75,753.75,778.75,865,885],"y":[0.018838264,0.01933774,0.021823239,0.026148576,0.028485552,0.034685444,0.029671073,0.027310637,0.02628142,0.026181081,0.026372386,0.013500378,0.013994503,0.007607589,0.00609612],"text":["band:
+ 400.00&lt;br /&gt;value: 0.018838264&lt;br /&gt;name: 1&lt;br 
+/&gt;name: 1","band: 412.50&lt;br /&gt;value: 0.019337740&lt;br 
+/&gt;name: 1&lt;br /&gt;name: 1","band: 442.50&lt;br /&gt;value: 
+0.021823239&lt;br /&gt;name: 1&lt;br /&gt;name: 1","band: 490.00&lt;br 
+/&gt;value: 0.026148576&lt;br /&gt;name: 1&lt;br /&gt;name: 1","band: 
+510.00&lt;br /&gt;value: 0.028485552&lt;br /&gt;name: 1&lt;br /&gt;name:
+ 1","band: 560.00&lt;br /&gt;value: 0.034685444&lt;br /&gt;name: 1&lt;br
+ /&gt;name: 1","band: 620.00&lt;br /&gt;value: 0.029671073&lt;br 
+/&gt;name: 1&lt;br /&gt;name: 1","band: 665.00&lt;br /&gt;value: 
+0.027310637&lt;br /&gt;name: 1&lt;br /&gt;name: 1","band: 673.75&lt;br 
+/&gt;value: 0.026281420&lt;br /&gt;name: 1&lt;br /&gt;name: 1","band: 
+681.25&lt;br /&gt;value: 0.026181081&lt;br /&gt;name: 1&lt;br /&gt;name:
+ 1","band: 708.75&lt;br /&gt;value: 0.026372386&lt;br /&gt;name: 1&lt;br
+ /&gt;name: 1","band: 753.75&lt;br /&gt;value: 0.013500378&lt;br 
+/&gt;name: 1&lt;br /&gt;name: 1","band: 778.75&lt;br /&gt;value: 
+0.013994503&lt;br /&gt;name: 1&lt;br /&gt;name: 1","band: 865.00&lt;br 
+/&gt;value: 0.007607589&lt;br /&gt;name: 1&lt;br /&gt;name: 1","band: 
+885.00&lt;br /&gt;value: 0.006096120&lt;br /&gt;name: 1&lt;br /&gt;name:
+ 
+1"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(68,1,84,0.5)","dash":"solid"},"hoveron":"points","name":"1","legendgroup":"1","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[400,412.5,442.5,490,510,560,620,665,673.75,681.25,708.75,753.75,778.75,865,885],"y":[0.01478314,0.014304107,0.013935828,0.016359466,0.018607431,0.027958106,0.01925559,0.016022271,0.014274279,0.014642469,0.021728805,0.010812797,0.010845579,0.006906441,0.006091938],"text":["band:
+ 400.00&lt;br /&gt;value: 0.014783140&lt;br /&gt;name: 10&lt;br 
+/&gt;name: 10","band: 412.50&lt;br /&gt;value: 0.014304107&lt;br 
+/&gt;name: 10&lt;br /&gt;name: 10","band: 442.50&lt;br /&gt;value: 
+0.013935828&lt;br /&gt;name: 10&lt;br /&gt;name: 10","band: 490.00&lt;br
+ /&gt;value: 0.016359466&lt;br /&gt;name: 10&lt;br /&gt;name: 10","band:
+ 510.00&lt;br /&gt;value: 0.018607431&lt;br /&gt;name: 10&lt;br 
+/&gt;name: 10","band: 560.00&lt;br /&gt;value: 0.027958106&lt;br 
+/&gt;name: 10&lt;br /&gt;name: 10","band: 620.00&lt;br /&gt;value: 
+0.019255590&lt;br /&gt;name: 10&lt;br /&gt;name: 10","band: 665.00&lt;br
+ /&gt;value: 0.016022271&lt;br /&gt;name: 10&lt;br /&gt;name: 10","band:
+ 673.75&lt;br /&gt;value: 0.014274279&lt;br /&gt;name: 10&lt;br 
+/&gt;name: 10","band: 681.25&lt;br /&gt;value: 0.014642469&lt;br 
+/&gt;name: 10&lt;br /&gt;name: 10","band: 708.75&lt;br /&gt;value: 
+0.021728805&lt;br /&gt;name: 10&lt;br /&gt;name: 10","band: 753.75&lt;br
+ /&gt;value: 0.010812797&lt;br /&gt;name: 10&lt;br /&gt;name: 10","band:
+ 778.75&lt;br /&gt;value: 0.010845579&lt;br /&gt;name: 10&lt;br 
+/&gt;name: 10","band: 865.00&lt;br /&gt;value: 0.006906441&lt;br 
+/&gt;name: 10&lt;br /&gt;name: 10","band: 885.00&lt;br /&gt;value: 
+0.006091938&lt;br /&gt;name: 10&lt;br /&gt;name: 
+10"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(70,12,95,0.5)","dash":"solid"},"hoveron":"points","name":"10","legendgroup":"10","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[400,412.5,442.5,490,510,560,620,665,673.75,681.25,708.75,753.75,778.75,865,885],"y":[0.009709238,0.009789957,0.010498976,0.014165963,0.017038134,0.026442047,0.018246652,0.013929814,0.012550954,0.01258962,0.014529035,0.004959384,0.005208696,0.002572241,0.002104972],"text":["band:
+ 400.00&lt;br /&gt;value: 0.009709238&lt;br /&gt;name: 11&lt;br 
+/&gt;name: 11","band: 412.50&lt;br /&gt;value: 0.009789957&lt;br 
+/&gt;name: 11&lt;br /&gt;name: 11","band: 442.50&lt;br /&gt;value: 
+0.010498976&lt;br /&gt;name: 11&lt;br /&gt;name: 11","band: 490.00&lt;br
+ /&gt;value: 0.014165963&lt;br /&gt;name: 11&lt;br /&gt;name: 11","band:
+ 510.00&lt;br /&gt;value: 0.017038134&lt;br /&gt;name: 11&lt;br 
+/&gt;name: 11","band: 560.00&lt;br /&gt;value: 0.026442047&lt;br 
+/&gt;name: 11&lt;br /&gt;name: 11","band: 620.00&lt;br /&gt;value: 
+0.018246652&lt;br /&gt;name: 11&lt;br /&gt;name: 11","band: 665.00&lt;br
+ /&gt;value: 0.013929814&lt;br /&gt;name: 11&lt;br /&gt;name: 11","band:
+ 673.75&lt;br /&gt;value: 0.012550954&lt;br /&gt;name: 11&lt;br 
+/&gt;name: 11","band: 681.25&lt;br /&gt;value: 0.012589620&lt;br 
+/&gt;name: 11&lt;br /&gt;name: 11","band: 708.75&lt;br /&gt;value: 
+0.014529035&lt;br /&gt;name: 11&lt;br /&gt;name: 11","band: 753.75&lt;br
+ /&gt;value: 0.004959384&lt;br /&gt;name: 11&lt;br /&gt;name: 11","band:
+ 778.75&lt;br /&gt;value: 0.005208696&lt;br /&gt;name: 11&lt;br 
+/&gt;name: 11","band: 865.00&lt;br /&gt;value: 0.002572241&lt;br 
+/&gt;name: 11&lt;br /&gt;name: 11","band: 885.00&lt;br /&gt;value: 
+0.002104972&lt;br /&gt;name: 11&lt;br /&gt;name: 
+11"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(72,23,105,0.5)","dash":"solid"},"hoveron":"points","name":"11","legendgroup":"11","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[400,412.5,442.5,490,510,560,620,665,673.75,681.25,708.75,753.75,778.75,865,885],"y":[0.01258243,0.012468122,0.012236715,0.015409415,0.018105741,0.027216408,0.017885391,0.013635573,0.012238564,0.01233194,0.014805624,0.005114794,0.005401306,0.002916949,0.002493179],"text":["band:
+ 400.00&lt;br /&gt;value: 0.012582430&lt;br /&gt;name: 12&lt;br 
+/&gt;name: 12","band: 412.50&lt;br /&gt;value: 0.012468122&lt;br 
+/&gt;name: 12&lt;br /&gt;name: 12","band: 442.50&lt;br /&gt;value: 
+0.012236715&lt;br /&gt;name: 12&lt;br /&gt;name: 12","band: 490.00&lt;br
+ /&gt;value: 0.015409415&lt;br /&gt;name: 12&lt;br /&gt;name: 12","band:
+ 510.00&lt;br /&gt;value: 0.018105741&lt;br /&gt;name: 12&lt;br 
+/&gt;name: 12","band: 560.00&lt;br /&gt;value: 0.027216408&lt;br 
+/&gt;name: 12&lt;br /&gt;name: 12","band: 620.00&lt;br /&gt;value: 
+0.017885391&lt;br /&gt;name: 12&lt;br /&gt;name: 12","band: 665.00&lt;br
+ /&gt;value: 0.013635573&lt;br /&gt;name: 12&lt;br /&gt;name: 12","band:
+ 673.75&lt;br /&gt;value: 0.012238564&lt;br /&gt;name: 12&lt;br 
+/&gt;name: 12","band: 681.25&lt;br /&gt;value: 0.012331940&lt;br 
+/&gt;name: 12&lt;br /&gt;name: 12","band: 708.75&lt;br /&gt;value: 
+0.014805624&lt;br /&gt;name: 12&lt;br /&gt;name: 12","band: 753.75&lt;br
+ /&gt;value: 0.005114794&lt;br /&gt;name: 12&lt;br /&gt;name: 12","band:
+ 778.75&lt;br /&gt;value: 0.005401306&lt;br /&gt;name: 12&lt;br 
+/&gt;name: 12","band: 865.00&lt;br /&gt;value: 0.002916949&lt;br 
+/&gt;name: 12&lt;br /&gt;name: 12","band: 885.00&lt;br /&gt;value: 
+0.002493179&lt;br /&gt;name: 12&lt;br /&gt;name: 
+12"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(72,32,114,0.5)","dash":"solid"},"hoveron":"points","name":"12","legendgroup":"12","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[400,412.5,442.5,490,510,560,620,665,673.75,681.25,708.75,753.75,778.75,865,885],"y":[0.0177496,0.017782733,0.017876008,0.022393314,0.025571266,0.034219495,0.021678288,0.01934209,0.017551424,0.018085151,0.025209201,0.013306357,0.013643143,0.009274222,0.008017032],"text":["band:
+ 400.00&lt;br /&gt;value: 0.017749600&lt;br /&gt;name: 13&lt;br 
+/&gt;name: 13","band: 412.50&lt;br /&gt;value: 0.017782733&lt;br 
+/&gt;name: 13&lt;br /&gt;name: 13","band: 442.50&lt;br /&gt;value: 
+0.017876008&lt;br /&gt;name: 13&lt;br /&gt;name: 13","band: 490.00&lt;br
+ /&gt;value: 0.022393314&lt;br /&gt;name: 13&lt;br /&gt;name: 13","band:
+ 510.00&lt;br /&gt;value: 0.025571266&lt;br /&gt;name: 13&lt;br 
+/&gt;name: 13","band: 560.00&lt;br /&gt;value: 0.034219495&lt;br 
+/&gt;name: 13&lt;br /&gt;name: 13","band: 620.00&lt;br /&gt;value: 
+0.021678288&lt;br /&gt;name: 13&lt;br /&gt;name: 13","band: 665.00&lt;br
+ /&gt;value: 0.019342090&lt;br /&gt;name: 13&lt;br /&gt;name: 13","band:
+ 673.75&lt;br /&gt;value: 0.017551424&lt;br /&gt;name: 13&lt;br 
+/&gt;name: 13","band: 681.25&lt;br /&gt;value: 0.018085151&lt;br 
+/&gt;name: 13&lt;br /&gt;name: 13","band: 708.75&lt;br /&gt;value: 
+0.025209201&lt;br /&gt;name: 13&lt;br /&gt;name: 13","band: 753.75&lt;br
+ /&gt;value: 0.013306357&lt;br /&gt;name: 13&lt;br /&gt;name: 13","band:
+ 778.75&lt;br /&gt;value: 0.013643143&lt;br /&gt;name: 13&lt;br 
+/&gt;name: 13","band: 865.00&lt;br /&gt;value: 0.009274222&lt;br 
+/&gt;name: 13&lt;br /&gt;name: 13","band: 885.00&lt;br /&gt;value: 
+0.008017032&lt;br /&gt;name: 13&lt;br /&gt;name: 
+13"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(71,42,122,0.5)","dash":"solid"},"hoveron":"points","name":"13","legendgroup":"13","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[400,412.5,442.5,490,510,560,620,665,673.75,681.25,708.75,753.75,778.75,865,885],"y":[0.011045761,0.01116374,0.012350554,0.016789198,0.019783142,0.029330159,0.020679202,0.016296356,0.014736072,0.01484236,0.016726092,0.006012798,0.006300162,0.003394833,0.002963316],"text":["band:
+ 400.00&lt;br /&gt;value: 0.011045761&lt;br /&gt;name: 14&lt;br 
+/&gt;name: 14","band: 412.50&lt;br /&gt;value: 0.011163740&lt;br 
+/&gt;name: 14&lt;br /&gt;name: 14","band: 442.50&lt;br /&gt;value: 
+0.012350554&lt;br /&gt;name: 14&lt;br /&gt;name: 14","band: 490.00&lt;br
+ /&gt;value: 0.016789198&lt;br /&gt;name: 14&lt;br /&gt;name: 14","band:
+ 510.00&lt;br /&gt;value: 0.019783142&lt;br /&gt;name: 14&lt;br 
+/&gt;name: 14","band: 560.00&lt;br /&gt;value: 0.029330159&lt;br 
+/&gt;name: 14&lt;br /&gt;name: 14","band: 620.00&lt;br /&gt;value: 
+0.020679202&lt;br /&gt;name: 14&lt;br /&gt;name: 14","band: 665.00&lt;br
+ /&gt;value: 0.016296356&lt;br /&gt;name: 14&lt;br /&gt;name: 14","band:
+ 673.75&lt;br /&gt;value: 0.014736072&lt;br /&gt;name: 14&lt;br 
+/&gt;name: 14","band: 681.25&lt;br /&gt;value: 0.014842360&lt;br 
+/&gt;name: 14&lt;br /&gt;name: 14","band: 708.75&lt;br /&gt;value: 
+0.016726092&lt;br /&gt;name: 14&lt;br /&gt;name: 14","band: 753.75&lt;br
+ /&gt;value: 0.006012798&lt;br /&gt;name: 14&lt;br /&gt;name: 14","band:
+ 778.75&lt;br /&gt;value: 0.006300162&lt;br /&gt;name: 14&lt;br 
+/&gt;name: 14","band: 865.00&lt;br /&gt;value: 0.003394833&lt;br 
+/&gt;name: 14&lt;br /&gt;name: 14","band: 885.00&lt;br /&gt;value: 
+0.002963316&lt;br /&gt;name: 14&lt;br /&gt;name: 
+14"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(70,51,128,0.5)","dash":"solid"},"hoveron":"points","name":"14","legendgroup":"14","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[400,412.5,442.5,490,510,560,620,665,673.75,681.25,708.75,753.75,778.75,865,885],"y":[0.018874124,0.01847713,0.018473492,0.020975953,0.023253066,0.028658058,0.016638264,0.012851202,0.012289619,0.012027954,0.009729719,0.006613937,0.006390606,0.004588499,0.004589716],"text":["band:
+ 400.00&lt;br /&gt;value: 0.018874124&lt;br /&gt;name: 15&lt;br 
+/&gt;name: 15","band: 412.50&lt;br /&gt;value: 0.018477130&lt;br 
+/&gt;name: 15&lt;br /&gt;name: 15","band: 442.50&lt;br /&gt;value: 
+0.018473492&lt;br /&gt;name: 15&lt;br /&gt;name: 15","band: 490.00&lt;br
+ /&gt;value: 0.020975953&lt;br /&gt;name: 15&lt;br /&gt;name: 15","band:
+ 510.00&lt;br /&gt;value: 0.023253066&lt;br /&gt;name: 15&lt;br 
+/&gt;name: 15","band: 560.00&lt;br /&gt;value: 0.028658058&lt;br 
+/&gt;name: 15&lt;br /&gt;name: 15","band: 620.00&lt;br /&gt;value: 
+0.016638264&lt;br /&gt;name: 15&lt;br /&gt;name: 15","band: 665.00&lt;br
+ /&gt;value: 0.012851202&lt;br /&gt;name: 15&lt;br /&gt;name: 15","band:
+ 673.75&lt;br /&gt;value: 0.012289619&lt;br /&gt;name: 15&lt;br 
+/&gt;name: 15","band: 681.25&lt;br /&gt;value: 0.012027954&lt;br 
+/&gt;name: 15&lt;br /&gt;name: 15","band: 708.75&lt;br /&gt;value: 
+0.009729719&lt;br /&gt;name: 15&lt;br /&gt;name: 15","band: 753.75&lt;br
+ /&gt;value: 0.006613937&lt;br /&gt;name: 15&lt;br /&gt;name: 15","band:
+ 778.75&lt;br /&gt;value: 0.006390606&lt;br /&gt;name: 15&lt;br 
+/&gt;name: 15","band: 865.00&lt;br /&gt;value: 0.004588499&lt;br 
+/&gt;name: 15&lt;br /&gt;name: 15","band: 885.00&lt;br /&gt;value: 
+0.004589716&lt;br /&gt;name: 15&lt;br /&gt;name: 
+15"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(67,61,132,0.5)","dash":"solid"},"hoveron":"points","name":"15","legendgroup":"15","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[400,412.5,442.5,490,510,560,620,665,673.75,681.25,708.75,753.75,778.75,865,885],"y":[0.015631492,0.016632176,0.021157501,0.030232979,0.035645603,0.048179936,0.042412777,0.03800756,0.036473825,0.036930948,0.037085902,0.015001084,0.016255903,0.008221689,0.007428987],"text":["band:
+ 400.00&lt;br /&gt;value: 0.015631492&lt;br /&gt;name: 16&lt;br 
+/&gt;name: 16","band: 412.50&lt;br /&gt;value: 0.016632176&lt;br 
+/&gt;name: 16&lt;br /&gt;name: 16","band: 442.50&lt;br /&gt;value: 
+0.021157501&lt;br /&gt;name: 16&lt;br /&gt;name: 16","band: 490.00&lt;br
+ /&gt;value: 0.030232979&lt;br /&gt;name: 16&lt;br /&gt;name: 16","band:
+ 510.00&lt;br /&gt;value: 0.035645603&lt;br /&gt;name: 16&lt;br 
+/&gt;name: 16","band: 560.00&lt;br /&gt;value: 0.048179936&lt;br 
+/&gt;name: 16&lt;br /&gt;name: 16","band: 620.00&lt;br /&gt;value: 
+0.042412777&lt;br /&gt;name: 16&lt;br /&gt;name: 16","band: 665.00&lt;br
+ /&gt;value: 0.038007560&lt;br /&gt;name: 16&lt;br /&gt;name: 16","band:
+ 673.75&lt;br /&gt;value: 0.036473825&lt;br /&gt;name: 16&lt;br 
+/&gt;name: 16","band: 681.25&lt;br /&gt;value: 0.036930948&lt;br 
+/&gt;name: 16&lt;br /&gt;name: 16","band: 708.75&lt;br /&gt;value: 
+0.037085902&lt;br /&gt;name: 16&lt;br /&gt;name: 16","band: 753.75&lt;br
+ /&gt;value: 0.015001084&lt;br /&gt;name: 16&lt;br /&gt;name: 16","band:
+ 778.75&lt;br /&gt;value: 0.016255903&lt;br /&gt;name: 16&lt;br 
+/&gt;name: 16","band: 865.00&lt;br /&gt;value: 0.008221689&lt;br 
+/&gt;name: 16&lt;br /&gt;name: 16","band: 885.00&lt;br /&gt;value: 
+0.007428987&lt;br /&gt;name: 16&lt;br /&gt;name: 
+16"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(64,69,136,0.5)","dash":"solid"},"hoveron":"points","name":"16","legendgroup":"16","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[400,412.5,442.5,490,510,560,620,665,673.75,681.25,708.75,753.75,778.75,865,885],"y":[0.023167948,0.023726418,0.027022992,0.033525254,0.037041504,0.047203542,0.040257841,0.036024665,0.034115719,0.034036728,0.035325851,0.016408931,0.017035575,0.008941129,0.007202697],"text":["band:
+ 400.00&lt;br /&gt;value: 0.023167948&lt;br /&gt;name: 17&lt;br 
+/&gt;name: 17","band: 412.50&lt;br /&gt;value: 0.023726418&lt;br 
+/&gt;name: 17&lt;br /&gt;name: 17","band: 442.50&lt;br /&gt;value: 
+0.027022992&lt;br /&gt;name: 17&lt;br /&gt;name: 17","band: 490.00&lt;br
+ /&gt;value: 0.033525254&lt;br /&gt;name: 17&lt;br /&gt;name: 17","band:
+ 510.00&lt;br /&gt;value: 0.037041504&lt;br /&gt;name: 17&lt;br 
+/&gt;name: 17","band: 560.00&lt;br /&gt;value: 0.047203542&lt;br 
+/&gt;name: 17&lt;br /&gt;name: 17","band: 620.00&lt;br /&gt;value: 
+0.040257841&lt;br /&gt;name: 17&lt;br /&gt;name: 17","band: 665.00&lt;br
+ /&gt;value: 0.036024665&lt;br /&gt;name: 17&lt;br /&gt;name: 17","band:
+ 673.75&lt;br /&gt;value: 0.034115719&lt;br /&gt;name: 17&lt;br 
+/&gt;name: 17","band: 681.25&lt;br /&gt;value: 0.034036728&lt;br 
+/&gt;name: 17&lt;br /&gt;name: 17","band: 708.75&lt;br /&gt;value: 
+0.035325851&lt;br /&gt;name: 17&lt;br /&gt;name: 17","band: 753.75&lt;br
+ /&gt;value: 0.016408931&lt;br /&gt;name: 17&lt;br /&gt;name: 17","band:
+ 778.75&lt;br /&gt;value: 0.017035575&lt;br /&gt;name: 17&lt;br 
+/&gt;name: 17","band: 865.00&lt;br /&gt;value: 0.008941129&lt;br 
+/&gt;name: 17&lt;br /&gt;name: 17","band: 885.00&lt;br /&gt;value: 
+0.007202697&lt;br /&gt;name: 17&lt;br /&gt;name: 
+17"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(61,78,138,0.5)","dash":"solid"},"hoveron":"points","name":"17","legendgroup":"17","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[400,412.5,442.5,490,510,560,620,665,673.75,681.25,708.75,753.75,778.75,865,885],"y":[0.009684851,0.009434688,0.010330584,0.015192808,0.018819775,0.032613724,0.0223006,0.018278465,0.015821863,0.016473119,0.026988845,0.011316812,0.011407769,0.00584539,0.004914024],"text":["band:
+ 400.00&lt;br /&gt;value: 0.009684851&lt;br /&gt;name: 18&lt;br 
+/&gt;name: 18","band: 412.50&lt;br /&gt;value: 0.009434688&lt;br 
+/&gt;name: 18&lt;br /&gt;name: 18","band: 442.50&lt;br /&gt;value: 
+0.010330584&lt;br /&gt;name: 18&lt;br /&gt;name: 18","band: 490.00&lt;br
+ /&gt;value: 0.015192808&lt;br /&gt;name: 18&lt;br /&gt;name: 18","band:
+ 510.00&lt;br /&gt;value: 0.018819775&lt;br /&gt;name: 18&lt;br 
+/&gt;name: 18","band: 560.00&lt;br /&gt;value: 0.032613724&lt;br 
+/&gt;name: 18&lt;br /&gt;name: 18","band: 620.00&lt;br /&gt;value: 
+0.022300600&lt;br /&gt;name: 18&lt;br /&gt;name: 18","band: 665.00&lt;br
+ /&gt;value: 0.018278465&lt;br /&gt;name: 18&lt;br /&gt;name: 18","band:
+ 673.75&lt;br /&gt;value: 0.015821863&lt;br /&gt;name: 18&lt;br 
+/&gt;name: 18","band: 681.25&lt;br /&gt;value: 0.016473119&lt;br 
+/&gt;name: 18&lt;br /&gt;name: 18","band: 708.75&lt;br /&gt;value: 
+0.026988845&lt;br /&gt;name: 18&lt;br /&gt;name: 18","band: 753.75&lt;br
+ /&gt;value: 0.011316812&lt;br /&gt;name: 18&lt;br /&gt;name: 18","band:
+ 778.75&lt;br /&gt;value: 0.011407769&lt;br /&gt;name: 18&lt;br 
+/&gt;name: 18","band: 865.00&lt;br /&gt;value: 0.005845390&lt;br 
+/&gt;name: 18&lt;br /&gt;name: 18","band: 885.00&lt;br /&gt;value: 
+0.004914024&lt;br /&gt;name: 18&lt;br /&gt;name: 
+18"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(57,85,140,0.5)","dash":"solid"},"hoveron":"points","name":"18","legendgroup":"18","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[400,412.5,442.5,490,510,560,620,665,673.75,681.25,708.75,753.75,778.75,865,885],"y":[0.007358574,0.007054718,0.00712329,0.01030121,0.013174077,0.024349356,0.013463448,0.010907863,0.009229097,0.009624284,0.019133337,0.007646589,0.007747493,0.004155407,0.00350039],"text":["band:
+ 400.00&lt;br /&gt;value: 0.007358574&lt;br /&gt;name: 19&lt;br 
+/&gt;name: 19","band: 412.50&lt;br /&gt;value: 0.007054718&lt;br 
+/&gt;name: 19&lt;br /&gt;name: 19","band: 442.50&lt;br /&gt;value: 
+0.007123290&lt;br /&gt;name: 19&lt;br /&gt;name: 19","band: 490.00&lt;br
+ /&gt;value: 0.010301210&lt;br /&gt;name: 19&lt;br /&gt;name: 19","band:
+ 510.00&lt;br /&gt;value: 0.013174077&lt;br /&gt;name: 19&lt;br 
+/&gt;name: 19","band: 560.00&lt;br /&gt;value: 0.024349356&lt;br 
+/&gt;name: 19&lt;br /&gt;name: 19","band: 620.00&lt;br /&gt;value: 
+0.013463448&lt;br /&gt;name: 19&lt;br /&gt;name: 19","band: 665.00&lt;br
+ /&gt;value: 0.010907863&lt;br /&gt;name: 19&lt;br /&gt;name: 19","band:
+ 673.75&lt;br /&gt;value: 0.009229097&lt;br /&gt;name: 19&lt;br 
+/&gt;name: 19","band: 681.25&lt;br /&gt;value: 0.009624284&lt;br 
+/&gt;name: 19&lt;br /&gt;name: 19","band: 708.75&lt;br /&gt;value: 
+0.019133337&lt;br /&gt;name: 19&lt;br /&gt;name: 19","band: 753.75&lt;br
+ /&gt;value: 0.007646589&lt;br /&gt;name: 19&lt;br /&gt;name: 19","band:
+ 778.75&lt;br /&gt;value: 0.007747493&lt;br /&gt;name: 19&lt;br 
+/&gt;name: 19","band: 865.00&lt;br /&gt;value: 0.004155407&lt;br 
+/&gt;name: 19&lt;br /&gt;name: 19","band: 885.00&lt;br /&gt;value: 
+0.003500390&lt;br /&gt;name: 19&lt;br /&gt;name: 
+19"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(53,94,141,0.5)","dash":"solid"},"hoveron":"points","name":"19","legendgroup":"19","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[400,412.5,442.5,490,510,560,620,665,673.75,681.25,708.75,753.75,778.75,865,885],"y":[0.02530324,0.026308877,0.030913733,0.037717963,0.041488535,0.054079473,0.049233281,0.044772119,0.04290862,0.042634032,0.043962757,0.021677972,0.021319425,0.011483433,0.0092088],"text":["band:
+ 400.00&lt;br /&gt;value: 0.025303240&lt;br /&gt;name: 2&lt;br 
+/&gt;name: 2","band: 412.50&lt;br /&gt;value: 0.026308877&lt;br 
+/&gt;name: 2&lt;br /&gt;name: 2","band: 442.50&lt;br /&gt;value: 
+0.030913733&lt;br /&gt;name: 2&lt;br /&gt;name: 2","band: 490.00&lt;br 
+/&gt;value: 0.037717963&lt;br /&gt;name: 2&lt;br /&gt;name: 2","band: 
+510.00&lt;br /&gt;value: 0.041488535&lt;br /&gt;name: 2&lt;br /&gt;name:
+ 2","band: 560.00&lt;br /&gt;value: 0.054079473&lt;br /&gt;name: 2&lt;br
+ /&gt;name: 2","band: 620.00&lt;br /&gt;value: 0.049233281&lt;br 
+/&gt;name: 2&lt;br /&gt;name: 2","band: 665.00&lt;br /&gt;value: 
+0.044772119&lt;br /&gt;name: 2&lt;br /&gt;name: 2","band: 673.75&lt;br 
+/&gt;value: 0.042908620&lt;br /&gt;name: 2&lt;br /&gt;name: 2","band: 
+681.25&lt;br /&gt;value: 0.042634032&lt;br /&gt;name: 2&lt;br /&gt;name:
+ 2","band: 708.75&lt;br /&gt;value: 0.043962757&lt;br /&gt;name: 2&lt;br
+ /&gt;name: 2","band: 753.75&lt;br /&gt;value: 0.021677972&lt;br 
+/&gt;name: 2&lt;br /&gt;name: 2","band: 778.75&lt;br /&gt;value: 
+0.021319425&lt;br /&gt;name: 2&lt;br /&gt;name: 2","band: 865.00&lt;br 
+/&gt;value: 0.011483433&lt;br /&gt;name: 2&lt;br /&gt;name: 2","band: 
+885.00&lt;br /&gt;value: 0.009208800&lt;br /&gt;name: 2&lt;br /&gt;name:
+ 
+2"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(50,102,142,0.5)","dash":"solid"},"hoveron":"points","name":"2","legendgroup":"2","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[400,412.5,442.5,490,510,560,620,665,673.75,681.25,708.75,753.75,778.75,865,885],"y":[0.01559246,0.015207968,0.015357589,0.019162452,0.022209816,0.033651101,0.020925458,0.016669916,0.015549135,0.015721894,0.016433331,0.007968754,0.008124553,0.006296747,0.005767956],"text":["band:
+ 400.00&lt;br /&gt;value: 0.015592460&lt;br /&gt;name: 20&lt;br 
+/&gt;name: 20","band: 412.50&lt;br /&gt;value: 0.015207968&lt;br 
+/&gt;name: 20&lt;br /&gt;name: 20","band: 442.50&lt;br /&gt;value: 
+0.015357589&lt;br /&gt;name: 20&lt;br /&gt;name: 20","band: 490.00&lt;br
+ /&gt;value: 0.019162452&lt;br /&gt;name: 20&lt;br /&gt;name: 20","band:
+ 510.00&lt;br /&gt;value: 0.022209816&lt;br /&gt;name: 20&lt;br 
+/&gt;name: 20","band: 560.00&lt;br /&gt;value: 0.033651101&lt;br 
+/&gt;name: 20&lt;br /&gt;name: 20","band: 620.00&lt;br /&gt;value: 
+0.020925458&lt;br /&gt;name: 20&lt;br /&gt;name: 20","band: 665.00&lt;br
+ /&gt;value: 0.016669916&lt;br /&gt;name: 20&lt;br /&gt;name: 20","band:
+ 673.75&lt;br /&gt;value: 0.015549135&lt;br /&gt;name: 20&lt;br 
+/&gt;name: 20","band: 681.25&lt;br /&gt;value: 0.015721894&lt;br 
+/&gt;name: 20&lt;br /&gt;name: 20","band: 708.75&lt;br /&gt;value: 
+0.016433331&lt;br /&gt;name: 20&lt;br /&gt;name: 20","band: 753.75&lt;br
+ /&gt;value: 0.007968754&lt;br /&gt;name: 20&lt;br /&gt;name: 20","band:
+ 778.75&lt;br /&gt;value: 0.008124553&lt;br /&gt;name: 20&lt;br 
+/&gt;name: 20","band: 865.00&lt;br /&gt;value: 0.006296747&lt;br 
+/&gt;name: 20&lt;br /&gt;name: 20","band: 885.00&lt;br /&gt;value: 
+0.005767956&lt;br /&gt;name: 20&lt;br /&gt;name: 
+20"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(46,109,142,0.5)","dash":"solid"},"hoveron":"points","name":"20","legendgroup":"20","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[400,412.5,442.5,490,510,560,620,665,673.75,681.25,708.75,753.75,778.75,865,885],"y":[0.01810129,0.016751317,0.015329148,0.019440534,0.023393164,0.035161167,0.018615922,0.017757274,0.015667544,0.016607391,0.040637872,0.023709871,0.025225406,0.015251133,0.013439624],"text":["band:
+ 400.00&lt;br /&gt;value: 0.018101290&lt;br /&gt;name: 21&lt;br 
+/&gt;name: 21","band: 412.50&lt;br /&gt;value: 0.016751317&lt;br 
+/&gt;name: 21&lt;br /&gt;name: 21","band: 442.50&lt;br /&gt;value: 
+0.015329148&lt;br /&gt;name: 21&lt;br /&gt;name: 21","band: 490.00&lt;br
+ /&gt;value: 0.019440534&lt;br /&gt;name: 21&lt;br /&gt;name: 21","band:
+ 510.00&lt;br /&gt;value: 0.023393164&lt;br /&gt;name: 21&lt;br 
+/&gt;name: 21","band: 560.00&lt;br /&gt;value: 0.035161167&lt;br 
+/&gt;name: 21&lt;br /&gt;name: 21","band: 620.00&lt;br /&gt;value: 
+0.018615922&lt;br /&gt;name: 21&lt;br /&gt;name: 21","band: 665.00&lt;br
+ /&gt;value: 0.017757274&lt;br /&gt;name: 21&lt;br /&gt;name: 21","band:
+ 673.75&lt;br /&gt;value: 0.015667544&lt;br /&gt;name: 21&lt;br 
+/&gt;name: 21","band: 681.25&lt;br /&gt;value: 0.016607391&lt;br 
+/&gt;name: 21&lt;br /&gt;name: 21","band: 708.75&lt;br /&gt;value: 
+0.040637872&lt;br /&gt;name: 21&lt;br /&gt;name: 21","band: 753.75&lt;br
+ /&gt;value: 0.023709871&lt;br /&gt;name: 21&lt;br /&gt;name: 21","band:
+ 778.75&lt;br /&gt;value: 0.025225406&lt;br /&gt;name: 21&lt;br 
+/&gt;name: 21","band: 865.00&lt;br /&gt;value: 0.015251133&lt;br 
+/&gt;name: 21&lt;br /&gt;name: 21","band: 885.00&lt;br /&gt;value: 
+0.013439624&lt;br /&gt;name: 21&lt;br /&gt;name: 
+21"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(43,115,142,0.5)","dash":"solid"},"hoveron":"points","name":"21","legendgroup":"21","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[400,412.5,442.5,490,510,560,620,665,673.75,681.25,708.75,753.75,778.75,865,885],"y":[0.012822314,0.012732329,0.013481796,0.019061024,0.023062796,0.037323405,0.025491525,0.020749918,0.018230821,0.018218816,0.024695939,0.009197236,0.009797459,0.005383817,0.004635647],"text":["band:
+ 400.00&lt;br /&gt;value: 0.012822314&lt;br /&gt;name: 22&lt;br 
+/&gt;name: 22","band: 412.50&lt;br /&gt;value: 0.012732329&lt;br 
+/&gt;name: 22&lt;br /&gt;name: 22","band: 442.50&lt;br /&gt;value: 
+0.013481796&lt;br /&gt;name: 22&lt;br /&gt;name: 22","band: 490.00&lt;br
+ /&gt;value: 0.019061024&lt;br /&gt;name: 22&lt;br /&gt;name: 22","band:
+ 510.00&lt;br /&gt;value: 0.023062796&lt;br /&gt;name: 22&lt;br 
+/&gt;name: 22","band: 560.00&lt;br /&gt;value: 0.037323405&lt;br 
+/&gt;name: 22&lt;br /&gt;name: 22","band: 620.00&lt;br /&gt;value: 
+0.025491525&lt;br /&gt;name: 22&lt;br /&gt;name: 22","band: 665.00&lt;br
+ /&gt;value: 0.020749918&lt;br /&gt;name: 22&lt;br /&gt;name: 22","band:
+ 673.75&lt;br /&gt;value: 0.018230821&lt;br /&gt;name: 22&lt;br 
+/&gt;name: 22","band: 681.25&lt;br /&gt;value: 0.018218816&lt;br 
+/&gt;name: 22&lt;br /&gt;name: 22","band: 708.75&lt;br /&gt;value: 
+0.024695939&lt;br /&gt;name: 22&lt;br /&gt;name: 22","band: 753.75&lt;br
+ /&gt;value: 0.009197236&lt;br /&gt;name: 22&lt;br /&gt;name: 22","band:
+ 778.75&lt;br /&gt;value: 0.009797459&lt;br /&gt;name: 22&lt;br 
+/&gt;name: 22","band: 865.00&lt;br /&gt;value: 0.005383817&lt;br 
+/&gt;name: 22&lt;br /&gt;name: 22","band: 885.00&lt;br /&gt;value: 
+0.004635647&lt;br /&gt;name: 22&lt;br /&gt;name: 
+22"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(41,123,142,0.5)","dash":"solid"},"hoveron":"points","name":"22","legendgroup":"22","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[400,412.5,442.5,490,510,560,620,665,673.75,681.25,708.75,753.75,778.75,865,885],"y":[0.024916296,0.022277261,0.017635156,0.020528289,0.024988712,0.056325662,0.031240162,0.024564924,0.019656516,0.019991265,0.07391758,0.08721044,0.085714156,0.075599237,0.073852718],"text":["band:
+ 400.00&lt;br /&gt;value: 0.024916296&lt;br /&gt;name: 23&lt;br 
+/&gt;name: 23","band: 412.50&lt;br /&gt;value: 0.022277261&lt;br 
+/&gt;name: 23&lt;br /&gt;name: 23","band: 442.50&lt;br /&gt;value: 
+0.017635156&lt;br /&gt;name: 23&lt;br /&gt;name: 23","band: 490.00&lt;br
+ /&gt;value: 0.020528289&lt;br /&gt;name: 23&lt;br /&gt;name: 23","band:
+ 510.00&lt;br /&gt;value: 0.024988712&lt;br /&gt;name: 23&lt;br 
+/&gt;name: 23","band: 560.00&lt;br /&gt;value: 0.056325662&lt;br 
+/&gt;name: 23&lt;br /&gt;name: 23","band: 620.00&lt;br /&gt;value: 
+0.031240162&lt;br /&gt;name: 23&lt;br /&gt;name: 23","band: 665.00&lt;br
+ /&gt;value: 0.024564924&lt;br /&gt;name: 23&lt;br /&gt;name: 23","band:
+ 673.75&lt;br /&gt;value: 0.019656516&lt;br /&gt;name: 23&lt;br 
+/&gt;name: 23","band: 681.25&lt;br /&gt;value: 0.019991265&lt;br 
+/&gt;name: 23&lt;br /&gt;name: 23","band: 708.75&lt;br /&gt;value: 
+0.073917580&lt;br /&gt;name: 23&lt;br /&gt;name: 23","band: 753.75&lt;br
+ /&gt;value: 0.087210440&lt;br /&gt;name: 23&lt;br /&gt;name: 23","band:
+ 778.75&lt;br /&gt;value: 0.085714156&lt;br /&gt;name: 23&lt;br 
+/&gt;name: 23","band: 865.00&lt;br /&gt;value: 0.075599237&lt;br 
+/&gt;name: 23&lt;br /&gt;name: 23","band: 885.00&lt;br /&gt;value: 
+0.073852718&lt;br /&gt;name: 23&lt;br /&gt;name: 
+23"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(38,130,142,0.5)","dash":"solid"},"hoveron":"points","name":"23","legendgroup":"23","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[400,412.5,442.5,490,510,560,620,665,673.75,681.25,708.75,753.75,778.75,865,885],"y":[0.018203454,0.01888074,0.023594783,0.029898571,0.033787335,0.044311231,0.044645953,0.041260989,0.040559215,0.041208817,0.040410727,0.024074061,0.025897808,0.01722008,0.01550509],"text":["band:
+ 400.00&lt;br /&gt;value: 0.018203454&lt;br /&gt;name: 24&lt;br 
+/&gt;name: 24","band: 412.50&lt;br /&gt;value: 0.018880740&lt;br 
+/&gt;name: 24&lt;br /&gt;name: 24","band: 442.50&lt;br /&gt;value: 
+0.023594783&lt;br /&gt;name: 24&lt;br /&gt;name: 24","band: 490.00&lt;br
+ /&gt;value: 0.029898571&lt;br /&gt;name: 24&lt;br /&gt;name: 24","band:
+ 510.00&lt;br /&gt;value: 0.033787335&lt;br /&gt;name: 24&lt;br 
+/&gt;name: 24","band: 560.00&lt;br /&gt;value: 0.044311231&lt;br 
+/&gt;name: 24&lt;br /&gt;name: 24","band: 620.00&lt;br /&gt;value: 
+0.044645953&lt;br /&gt;name: 24&lt;br /&gt;name: 24","band: 665.00&lt;br
+ /&gt;value: 0.041260989&lt;br /&gt;name: 24&lt;br /&gt;name: 24","band:
+ 673.75&lt;br /&gt;value: 0.040559215&lt;br /&gt;name: 24&lt;br 
+/&gt;name: 24","band: 681.25&lt;br /&gt;value: 0.041208817&lt;br 
+/&gt;name: 24&lt;br /&gt;name: 24","band: 708.75&lt;br /&gt;value: 
+0.040410727&lt;br /&gt;name: 24&lt;br /&gt;name: 24","band: 753.75&lt;br
+ /&gt;value: 0.024074061&lt;br /&gt;name: 24&lt;br /&gt;name: 24","band:
+ 778.75&lt;br /&gt;value: 0.025897808&lt;br /&gt;name: 24&lt;br 
+/&gt;name: 24","band: 865.00&lt;br /&gt;value: 0.017220080&lt;br 
+/&gt;name: 24&lt;br /&gt;name: 24","band: 885.00&lt;br /&gt;value: 
+0.015505090&lt;br /&gt;name: 24&lt;br /&gt;name: 
+24"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(35,137,142,0.5)","dash":"solid"},"hoveron":"points","name":"24","legendgroup":"24","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[400,412.5,442.5,490,510,560,620,665,673.75,681.25,708.75,753.75,778.75,865,885],"y":[0.021390503,0.021899396,0.02527555,0.030236237,0.033651192,0.041651741,0.039619402,0.036028838,0.03522982,0.035879923,0.036125447,0.022046838,0.023336156,0.016432861,0.014431738],"text":["band:
+ 400.00&lt;br /&gt;value: 0.021390503&lt;br /&gt;name: 25&lt;br 
+/&gt;name: 25","band: 412.50&lt;br /&gt;value: 0.021899396&lt;br 
+/&gt;name: 25&lt;br /&gt;name: 25","band: 442.50&lt;br /&gt;value: 
+0.025275550&lt;br /&gt;name: 25&lt;br /&gt;name: 25","band: 490.00&lt;br
+ /&gt;value: 0.030236237&lt;br /&gt;name: 25&lt;br /&gt;name: 25","band:
+ 510.00&lt;br /&gt;value: 0.033651192&lt;br /&gt;name: 25&lt;br 
+/&gt;name: 25","band: 560.00&lt;br /&gt;value: 0.041651741&lt;br 
+/&gt;name: 25&lt;br /&gt;name: 25","band: 620.00&lt;br /&gt;value: 
+0.039619402&lt;br /&gt;name: 25&lt;br /&gt;name: 25","band: 665.00&lt;br
+ /&gt;value: 0.036028838&lt;br /&gt;name: 25&lt;br /&gt;name: 25","band:
+ 673.75&lt;br /&gt;value: 0.035229820&lt;br /&gt;name: 25&lt;br 
+/&gt;name: 25","band: 681.25&lt;br /&gt;value: 0.035879923&lt;br 
+/&gt;name: 25&lt;br /&gt;name: 25","band: 708.75&lt;br /&gt;value: 
+0.036125447&lt;br /&gt;name: 25&lt;br /&gt;name: 25","band: 753.75&lt;br
+ /&gt;value: 0.022046838&lt;br /&gt;name: 25&lt;br /&gt;name: 25","band:
+ 778.75&lt;br /&gt;value: 0.023336156&lt;br /&gt;name: 25&lt;br 
+/&gt;name: 25","band: 865.00&lt;br /&gt;value: 0.016432861&lt;br 
+/&gt;name: 25&lt;br /&gt;name: 25","band: 885.00&lt;br /&gt;value: 
+0.014431738&lt;br /&gt;name: 25&lt;br /&gt;name: 
+25"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(33,144,140,0.5)","dash":"solid"},"hoveron":"points","name":"25","legendgroup":"25","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[400,412.5,442.5,490,510,560,620,665,673.75,681.25,708.75,753.75,778.75,865,885],"y":[0.019730296,0.019601494,0.020653482,0.024794838,0.027810027,0.040632055,0.031566657,0.027348979,0.02526196,0.0251201,0.034099574,0.021192966,0.021359769,0.013408458,0.011637698],"text":["band:
+ 400.00&lt;br /&gt;value: 0.019730296&lt;br /&gt;name: 26&lt;br 
+/&gt;name: 26","band: 412.50&lt;br /&gt;value: 0.019601494&lt;br 
+/&gt;name: 26&lt;br /&gt;name: 26","band: 442.50&lt;br /&gt;value: 
+0.020653482&lt;br /&gt;name: 26&lt;br /&gt;name: 26","band: 490.00&lt;br
+ /&gt;value: 0.024794838&lt;br /&gt;name: 26&lt;br /&gt;name: 26","band:
+ 510.00&lt;br /&gt;value: 0.027810027&lt;br /&gt;name: 26&lt;br 
+/&gt;name: 26","band: 560.00&lt;br /&gt;value: 0.040632055&lt;br 
+/&gt;name: 26&lt;br /&gt;name: 26","band: 620.00&lt;br /&gt;value: 
+0.031566657&lt;br /&gt;name: 26&lt;br /&gt;name: 26","band: 665.00&lt;br
+ /&gt;value: 0.027348979&lt;br /&gt;name: 26&lt;br /&gt;name: 26","band:
+ 673.75&lt;br /&gt;value: 0.025261960&lt;br /&gt;name: 26&lt;br 
+/&gt;name: 26","band: 681.25&lt;br /&gt;value: 0.025120100&lt;br 
+/&gt;name: 26&lt;br /&gt;name: 26","band: 708.75&lt;br /&gt;value: 
+0.034099574&lt;br /&gt;name: 26&lt;br /&gt;name: 26","band: 753.75&lt;br
+ /&gt;value: 0.021192966&lt;br /&gt;name: 26&lt;br /&gt;name: 26","band:
+ 778.75&lt;br /&gt;value: 0.021359769&lt;br /&gt;name: 26&lt;br 
+/&gt;name: 26","band: 865.00&lt;br /&gt;value: 0.013408458&lt;br 
+/&gt;name: 26&lt;br /&gt;name: 26","band: 885.00&lt;br /&gt;value: 
+0.011637698&lt;br /&gt;name: 26&lt;br /&gt;name: 
+26"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(31,151,139,0.5)","dash":"solid"},"hoveron":"points","name":"26","legendgroup":"26","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[400,412.5,442.5,490,510,560,620,665,673.75,681.25,708.75,753.75,778.75,865,885],"y":[0.017933517,0.016086203,0.012711091,0.015961813,0.020151207,0.049346314,0.026803753,0.021659508,0.017067581,0.017574079,0.066837812,0.06853577,0.066750288,0.054647236,0.052108241],"text":["band:
+ 400.00&lt;br /&gt;value: 0.017933517&lt;br /&gt;name: 27&lt;br 
+/&gt;name: 27","band: 412.50&lt;br /&gt;value: 0.016086203&lt;br 
+/&gt;name: 27&lt;br /&gt;name: 27","band: 442.50&lt;br /&gt;value: 
+0.012711091&lt;br /&gt;name: 27&lt;br /&gt;name: 27","band: 490.00&lt;br
+ /&gt;value: 0.015961813&lt;br /&gt;name: 27&lt;br /&gt;name: 27","band:
+ 510.00&lt;br /&gt;value: 0.020151207&lt;br /&gt;name: 27&lt;br 
+/&gt;name: 27","band: 560.00&lt;br /&gt;value: 0.049346314&lt;br 
+/&gt;name: 27&lt;br /&gt;name: 27","band: 620.00&lt;br /&gt;value: 
+0.026803753&lt;br /&gt;name: 27&lt;br /&gt;name: 27","band: 665.00&lt;br
+ /&gt;value: 0.021659508&lt;br /&gt;name: 27&lt;br /&gt;name: 27","band:
+ 673.75&lt;br /&gt;value: 0.017067581&lt;br /&gt;name: 27&lt;br 
+/&gt;name: 27","band: 681.25&lt;br /&gt;value: 0.017574079&lt;br 
+/&gt;name: 27&lt;br /&gt;name: 27","band: 708.75&lt;br /&gt;value: 
+0.066837812&lt;br /&gt;name: 27&lt;br /&gt;name: 27","band: 753.75&lt;br
+ /&gt;value: 0.068535770&lt;br /&gt;name: 27&lt;br /&gt;name: 27","band:
+ 778.75&lt;br /&gt;value: 0.066750288&lt;br /&gt;name: 27&lt;br 
+/&gt;name: 27","band: 865.00&lt;br /&gt;value: 0.054647236&lt;br 
+/&gt;name: 27&lt;br /&gt;name: 27","band: 885.00&lt;br /&gt;value: 
+0.052108241&lt;br /&gt;name: 27&lt;br /&gt;name: 
+27"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(31,159,137,0.5)","dash":"solid"},"hoveron":"points","name":"27","legendgroup":"27","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[400,412.5,442.5,490,510,560,620,665,673.75,681.25,708.75,753.75,778.75,865,885],"y":[0.019184377,0.020469742,0.02654418,0.033365685,0.03721482,0.047552812,0.047745863,0.044992909,0.044561369,0.044278348,0.038595907,0.018890216,0.019539286,0.011019991,0.009071914],"text":["band:
+ 400.00&lt;br /&gt;value: 0.019184377&lt;br /&gt;name: 28&lt;br 
+/&gt;name: 28","band: 412.50&lt;br /&gt;value: 0.020469742&lt;br 
+/&gt;name: 28&lt;br /&gt;name: 28","band: 442.50&lt;br /&gt;value: 
+0.026544180&lt;br /&gt;name: 28&lt;br /&gt;name: 28","band: 490.00&lt;br
+ /&gt;value: 0.033365685&lt;br /&gt;name: 28&lt;br /&gt;name: 28","band:
+ 510.00&lt;br /&gt;value: 0.037214820&lt;br /&gt;name: 28&lt;br 
+/&gt;name: 28","band: 560.00&lt;br /&gt;value: 0.047552812&lt;br 
+/&gt;name: 28&lt;br /&gt;name: 28","band: 620.00&lt;br /&gt;value: 
+0.047745863&lt;br /&gt;name: 28&lt;br /&gt;name: 28","band: 665.00&lt;br
+ /&gt;value: 0.044992909&lt;br /&gt;name: 28&lt;br /&gt;name: 28","band:
+ 673.75&lt;br /&gt;value: 0.044561369&lt;br /&gt;name: 28&lt;br 
+/&gt;name: 28","band: 681.25&lt;br /&gt;value: 0.044278348&lt;br 
+/&gt;name: 28&lt;br /&gt;name: 28","band: 708.75&lt;br /&gt;value: 
+0.038595907&lt;br /&gt;name: 28&lt;br /&gt;name: 28","band: 753.75&lt;br
+ /&gt;value: 0.018890216&lt;br /&gt;name: 28&lt;br /&gt;name: 28","band:
+ 778.75&lt;br /&gt;value: 0.019539286&lt;br /&gt;name: 28&lt;br 
+/&gt;name: 28","band: 865.00&lt;br /&gt;value: 0.011019991&lt;br 
+/&gt;name: 28&lt;br /&gt;name: 28","band: 885.00&lt;br /&gt;value: 
+0.009071914&lt;br /&gt;name: 28&lt;br /&gt;name: 
+28"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(33,165,133,0.5)","dash":"solid"},"hoveron":"points","name":"28","legendgroup":"28","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[400,412.5,442.5,490,510,560,620,665,673.75,681.25,708.75,753.75,778.75,865,885],"y":[0.017801334,0.018436277,0.021369867,0.026070268,0.028968448,0.037116718,0.033857895,0.028237759,0.026935824,0.027205815,0.026353465,0.012227045,0.012226535,0.00654066,0.005108307],"text":["band:
+ 400.00&lt;br /&gt;value: 0.017801334&lt;br /&gt;name: 29&lt;br 
+/&gt;name: 29","band: 412.50&lt;br /&gt;value: 0.018436277&lt;br 
+/&gt;name: 29&lt;br /&gt;name: 29","band: 442.50&lt;br /&gt;value: 
+0.021369867&lt;br /&gt;name: 29&lt;br /&gt;name: 29","band: 490.00&lt;br
+ /&gt;value: 0.026070268&lt;br /&gt;name: 29&lt;br /&gt;name: 29","band:
+ 510.00&lt;br /&gt;value: 0.028968448&lt;br /&gt;name: 29&lt;br 
+/&gt;name: 29","band: 560.00&lt;br /&gt;value: 0.037116718&lt;br 
+/&gt;name: 29&lt;br /&gt;name: 29","band: 620.00&lt;br /&gt;value: 
+0.033857895&lt;br /&gt;name: 29&lt;br /&gt;name: 29","band: 665.00&lt;br
+ /&gt;value: 0.028237759&lt;br /&gt;name: 29&lt;br /&gt;name: 29","band:
+ 673.75&lt;br /&gt;value: 0.026935824&lt;br /&gt;name: 29&lt;br 
+/&gt;name: 29","band: 681.25&lt;br /&gt;value: 0.027205815&lt;br 
+/&gt;name: 29&lt;br /&gt;name: 29","band: 708.75&lt;br /&gt;value: 
+0.026353465&lt;br /&gt;name: 29&lt;br /&gt;name: 29","band: 753.75&lt;br
+ /&gt;value: 0.012227045&lt;br /&gt;name: 29&lt;br /&gt;name: 29","band:
+ 778.75&lt;br /&gt;value: 0.012226535&lt;br /&gt;name: 29&lt;br 
+/&gt;name: 29","band: 865.00&lt;br /&gt;value: 0.006540660&lt;br 
+/&gt;name: 29&lt;br /&gt;name: 29","band: 885.00&lt;br /&gt;value: 
+0.005108307&lt;br /&gt;name: 29&lt;br /&gt;name: 
+29"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(37,173,130,0.5)","dash":"solid"},"hoveron":"points","name":"29","legendgroup":"29","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[400,412.5,442.5,490,510,560,620,665,673.75,681.25,708.75,753.75,778.75,865,885],"y":[0.015258018,0.015445707,0.016829137,0.021344271,0.024431854,0.03148986,0.021499417,0.017612626,0.016669732,0.016722647,0.013794835,0.005208439,0.005591491,0.002966577,0.002727563],"text":["band:
+ 400.00&lt;br /&gt;value: 0.015258018&lt;br /&gt;name: 3&lt;br 
+/&gt;name: 3","band: 412.50&lt;br /&gt;value: 0.015445707&lt;br 
+/&gt;name: 3&lt;br /&gt;name: 3","band: 442.50&lt;br /&gt;value: 
+0.016829137&lt;br /&gt;name: 3&lt;br /&gt;name: 3","band: 490.00&lt;br 
+/&gt;value: 0.021344271&lt;br /&gt;name: 3&lt;br /&gt;name: 3","band: 
+510.00&lt;br /&gt;value: 0.024431854&lt;br /&gt;name: 3&lt;br /&gt;name:
+ 3","band: 560.00&lt;br /&gt;value: 0.031489860&lt;br /&gt;name: 3&lt;br
+ /&gt;name: 3","band: 620.00&lt;br /&gt;value: 0.021499417&lt;br 
+/&gt;name: 3&lt;br /&gt;name: 3","band: 665.00&lt;br /&gt;value: 
+0.017612626&lt;br /&gt;name: 3&lt;br /&gt;name: 3","band: 673.75&lt;br 
+/&gt;value: 0.016669732&lt;br /&gt;name: 3&lt;br /&gt;name: 3","band: 
+681.25&lt;br /&gt;value: 0.016722647&lt;br /&gt;name: 3&lt;br /&gt;name:
+ 3","band: 708.75&lt;br /&gt;value: 0.013794835&lt;br /&gt;name: 3&lt;br
+ /&gt;name: 3","band: 753.75&lt;br /&gt;value: 0.005208439&lt;br 
+/&gt;name: 3&lt;br /&gt;name: 3","band: 778.75&lt;br /&gt;value: 
+0.005591491&lt;br /&gt;name: 3&lt;br /&gt;name: 3","band: 865.00&lt;br 
+/&gt;value: 0.002966577&lt;br /&gt;name: 3&lt;br /&gt;name: 3","band: 
+885.00&lt;br /&gt;value: 0.002727563&lt;br /&gt;name: 3&lt;br /&gt;name:
+ 
+3"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(46,179,124,0.5)","dash":"solid"},"hoveron":"points","name":"3","legendgroup":"3","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[400,412.5,442.5,490,510,560,620,665,673.75,681.25,708.75,753.75,778.75,865,885],"y":[0.019216821,0.019957772,0.024279393,0.030727181,0.034421426,0.045250193,0.040095965,0.036305697,0.034865558,0.034683118,0.036097414,0.018812551,0.019423667,0.011549734,0.009756991],"text":["band:
+ 400.00&lt;br /&gt;value: 0.019216821&lt;br /&gt;name: 30&lt;br 
+/&gt;name: 30","band: 412.50&lt;br /&gt;value: 0.019957772&lt;br 
+/&gt;name: 30&lt;br /&gt;name: 30","band: 442.50&lt;br /&gt;value: 
+0.024279393&lt;br /&gt;name: 30&lt;br /&gt;name: 30","band: 490.00&lt;br
+ /&gt;value: 0.030727181&lt;br /&gt;name: 30&lt;br /&gt;name: 30","band:
+ 510.00&lt;br /&gt;value: 0.034421426&lt;br /&gt;name: 30&lt;br 
+/&gt;name: 30","band: 560.00&lt;br /&gt;value: 0.045250193&lt;br 
+/&gt;name: 30&lt;br /&gt;name: 30","band: 620.00&lt;br /&gt;value: 
+0.040095965&lt;br /&gt;name: 30&lt;br /&gt;name: 30","band: 665.00&lt;br
+ /&gt;value: 0.036305697&lt;br /&gt;name: 30&lt;br /&gt;name: 30","band:
+ 673.75&lt;br /&gt;value: 0.034865558&lt;br /&gt;name: 30&lt;br 
+/&gt;name: 30","band: 681.25&lt;br /&gt;value: 0.034683118&lt;br 
+/&gt;name: 30&lt;br /&gt;name: 30","band: 708.75&lt;br /&gt;value: 
+0.036097414&lt;br /&gt;name: 30&lt;br /&gt;name: 30","band: 753.75&lt;br
+ /&gt;value: 0.018812551&lt;br /&gt;name: 30&lt;br /&gt;name: 30","band:
+ 778.75&lt;br /&gt;value: 0.019423667&lt;br /&gt;name: 30&lt;br 
+/&gt;name: 30","band: 865.00&lt;br /&gt;value: 0.011549734&lt;br 
+/&gt;name: 30&lt;br /&gt;name: 30","band: 885.00&lt;br /&gt;value: 
+0.009756991&lt;br /&gt;name: 30&lt;br /&gt;name: 
+30"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(57,186,119,0.5)","dash":"solid"},"hoveron":"points","name":"30","legendgroup":"30","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[400,412.5,442.5,490,510,560,620,665,673.75,681.25,708.75,753.75,778.75,865,885],"y":[0.019184377,0.020469742,0.02654418,0.033365685,0.03721482,0.047552812,0.047745863,0.044992909,0.044561369,0.044278348,0.038595907,0.018890216,0.019539286,0.011019991,0.009071914],"text":["band:
+ 400.00&lt;br /&gt;value: 0.019184377&lt;br /&gt;name: 31&lt;br 
+/&gt;name: 31","band: 412.50&lt;br /&gt;value: 0.020469742&lt;br 
+/&gt;name: 31&lt;br /&gt;name: 31","band: 442.50&lt;br /&gt;value: 
+0.026544180&lt;br /&gt;name: 31&lt;br /&gt;name: 31","band: 490.00&lt;br
+ /&gt;value: 0.033365685&lt;br /&gt;name: 31&lt;br /&gt;name: 31","band:
+ 510.00&lt;br /&gt;value: 0.037214820&lt;br /&gt;name: 31&lt;br 
+/&gt;name: 31","band: 560.00&lt;br /&gt;value: 0.047552812&lt;br 
+/&gt;name: 31&lt;br /&gt;name: 31","band: 620.00&lt;br /&gt;value: 
+0.047745863&lt;br /&gt;name: 31&lt;br /&gt;name: 31","band: 665.00&lt;br
+ /&gt;value: 0.044992909&lt;br /&gt;name: 31&lt;br /&gt;name: 31","band:
+ 673.75&lt;br /&gt;value: 0.044561369&lt;br /&gt;name: 31&lt;br 
+/&gt;name: 31","band: 681.25&lt;br /&gt;value: 0.044278348&lt;br 
+/&gt;name: 31&lt;br /&gt;name: 31","band: 708.75&lt;br /&gt;value: 
+0.038595907&lt;br /&gt;name: 31&lt;br /&gt;name: 31","band: 753.75&lt;br
+ /&gt;value: 0.018890216&lt;br /&gt;name: 31&lt;br /&gt;name: 31","band:
+ 778.75&lt;br /&gt;value: 0.019539286&lt;br /&gt;name: 31&lt;br 
+/&gt;name: 31","band: 865.00&lt;br /&gt;value: 0.011019991&lt;br 
+/&gt;name: 31&lt;br /&gt;name: 31","band: 885.00&lt;br /&gt;value: 
+0.009071914&lt;br /&gt;name: 31&lt;br /&gt;name: 
+31"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(70,192,111,0.5)","dash":"solid"},"hoveron":"points","name":"31","legendgroup":"31","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[400,412.5,442.5,490,510,560,620,665,673.75,681.25,708.75,753.75,778.75,865,885],"y":[0.017225347,0.018152089,0.022761587,0.031283577,0.035686737,0.04635144,0.042631051,0.040910472,0.039858231,0.040382456,0.04289019,0.022483453,0.024314778,0.014254659,0.011890509],"text":["band:
+ 400.00&lt;br /&gt;value: 0.017225347&lt;br /&gt;name: 32&lt;br 
+/&gt;name: 32","band: 412.50&lt;br /&gt;value: 0.018152089&lt;br 
+/&gt;name: 32&lt;br /&gt;name: 32","band: 442.50&lt;br /&gt;value: 
+0.022761587&lt;br /&gt;name: 32&lt;br /&gt;name: 32","band: 490.00&lt;br
+ /&gt;value: 0.031283577&lt;br /&gt;name: 32&lt;br /&gt;name: 32","band:
+ 510.00&lt;br /&gt;value: 0.035686737&lt;br /&gt;name: 32&lt;br 
+/&gt;name: 32","band: 560.00&lt;br /&gt;value: 0.046351440&lt;br 
+/&gt;name: 32&lt;br /&gt;name: 32","band: 620.00&lt;br /&gt;value: 
+0.042631051&lt;br /&gt;name: 32&lt;br /&gt;name: 32","band: 665.00&lt;br
+ /&gt;value: 0.040910472&lt;br /&gt;name: 32&lt;br /&gt;name: 32","band:
+ 673.75&lt;br /&gt;value: 0.039858231&lt;br /&gt;name: 32&lt;br 
+/&gt;name: 32","band: 681.25&lt;br /&gt;value: 0.040382456&lt;br 
+/&gt;name: 32&lt;br /&gt;name: 32","band: 708.75&lt;br /&gt;value: 
+0.042890190&lt;br /&gt;name: 32&lt;br /&gt;name: 32","band: 753.75&lt;br
+ /&gt;value: 0.022483453&lt;br /&gt;name: 32&lt;br /&gt;name: 32","band:
+ 778.75&lt;br /&gt;value: 0.024314778&lt;br /&gt;name: 32&lt;br 
+/&gt;name: 32","band: 865.00&lt;br /&gt;value: 0.014254659&lt;br 
+/&gt;name: 32&lt;br /&gt;name: 32","band: 885.00&lt;br /&gt;value: 
+0.011890509&lt;br /&gt;name: 32&lt;br /&gt;name: 
+32"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(85,197,104,0.5)","dash":"solid"},"hoveron":"points","name":"32","legendgroup":"32","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[400,412.5,442.5,490,510,560,620,665,673.75,681.25,708.75,753.75,778.75,865,885],"y":[0.012677568,0.012605984,0.014102973,0.020906248,0.026002876,0.03965684,0.022674179,0.018361985,0.016409343,0.016992442,0.020589103,0.0070904,0.007462059,0.004416978,0.00396019],"text":["band:
+ 400.00&lt;br /&gt;value: 0.012677568&lt;br /&gt;name: 33&lt;br 
+/&gt;name: 33","band: 412.50&lt;br /&gt;value: 0.012605984&lt;br 
+/&gt;name: 33&lt;br /&gt;name: 33","band: 442.50&lt;br /&gt;value: 
+0.014102973&lt;br /&gt;name: 33&lt;br /&gt;name: 33","band: 490.00&lt;br
+ /&gt;value: 0.020906248&lt;br /&gt;name: 33&lt;br /&gt;name: 33","band:
+ 510.00&lt;br /&gt;value: 0.026002876&lt;br /&gt;name: 33&lt;br 
+/&gt;name: 33","band: 560.00&lt;br /&gt;value: 0.039656840&lt;br 
+/&gt;name: 33&lt;br /&gt;name: 33","band: 620.00&lt;br /&gt;value: 
+0.022674179&lt;br /&gt;name: 33&lt;br /&gt;name: 33","band: 665.00&lt;br
+ /&gt;value: 0.018361985&lt;br /&gt;name: 33&lt;br /&gt;name: 33","band:
+ 673.75&lt;br /&gt;value: 0.016409343&lt;br /&gt;name: 33&lt;br 
+/&gt;name: 33","band: 681.25&lt;br /&gt;value: 0.016992442&lt;br 
+/&gt;name: 33&lt;br /&gt;name: 33","band: 708.75&lt;br /&gt;value: 
+0.020589103&lt;br /&gt;name: 33&lt;br /&gt;name: 33","band: 753.75&lt;br
+ /&gt;value: 0.007090400&lt;br /&gt;name: 33&lt;br /&gt;name: 33","band:
+ 778.75&lt;br /&gt;value: 0.007462059&lt;br /&gt;name: 33&lt;br 
+/&gt;name: 33","band: 865.00&lt;br /&gt;value: 0.004416978&lt;br 
+/&gt;name: 33&lt;br /&gt;name: 33","band: 885.00&lt;br /&gt;value: 
+0.003960190&lt;br /&gt;name: 33&lt;br /&gt;name: 
+33"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(101,203,94,0.5)","dash":"solid"},"hoveron":"points","name":"33","legendgroup":"33","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[400,412.5,442.5,490,510,560,620,665,673.75,681.25,708.75,753.75,778.75,865,885],"y":[0.026095663,0.026579474,0.029329329,0.037247966,0.042877811,0.056445819,0.044350619,0.037381534,0.035641425,0.035733532,0.034586465,0.01672433,0.017306877,0.011967726,0.010980114],"text":["band:
+ 400.00&lt;br /&gt;value: 0.026095663&lt;br /&gt;name: 34&lt;br 
+/&gt;name: 34","band: 412.50&lt;br /&gt;value: 0.026579474&lt;br 
+/&gt;name: 34&lt;br /&gt;name: 34","band: 442.50&lt;br /&gt;value: 
+0.029329329&lt;br /&gt;name: 34&lt;br /&gt;name: 34","band: 490.00&lt;br
+ /&gt;value: 0.037247966&lt;br /&gt;name: 34&lt;br /&gt;name: 34","band:
+ 510.00&lt;br /&gt;value: 0.042877811&lt;br /&gt;name: 34&lt;br 
+/&gt;name: 34","band: 560.00&lt;br /&gt;value: 0.056445819&lt;br 
+/&gt;name: 34&lt;br /&gt;name: 34","band: 620.00&lt;br /&gt;value: 
+0.044350619&lt;br /&gt;name: 34&lt;br /&gt;name: 34","band: 665.00&lt;br
+ /&gt;value: 0.037381534&lt;br /&gt;name: 34&lt;br /&gt;name: 34","band:
+ 673.75&lt;br /&gt;value: 0.035641425&lt;br /&gt;name: 34&lt;br 
+/&gt;name: 34","band: 681.25&lt;br /&gt;value: 0.035733532&lt;br 
+/&gt;name: 34&lt;br /&gt;name: 34","band: 708.75&lt;br /&gt;value: 
+0.034586465&lt;br /&gt;name: 34&lt;br /&gt;name: 34","band: 753.75&lt;br
+ /&gt;value: 0.016724330&lt;br /&gt;name: 34&lt;br /&gt;name: 34","band:
+ 778.75&lt;br /&gt;value: 0.017306877&lt;br /&gt;name: 34&lt;br 
+/&gt;name: 34","band: 865.00&lt;br /&gt;value: 0.011967726&lt;br 
+/&gt;name: 34&lt;br /&gt;name: 34","band: 885.00&lt;br /&gt;value: 
+0.010980114&lt;br /&gt;name: 34&lt;br /&gt;name: 
+34"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(118,208,84,0.5)","dash":"solid"},"hoveron":"points","name":"34","legendgroup":"34","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[400,412.5,442.5,490,510,560,620,665,673.75,681.25,708.75,753.75,778.75,865,885],"y":[0.016890294,0.018409144,0.025233354,0.035671321,0.040389026,0.053399594,0.058170959,0.055102223,0.054369532,0.054070327,0.049500525,0.028315957,0.028015068,0.018522839,0.015718189],"text":["band:
+ 400.00&lt;br /&gt;value: 0.016890294&lt;br /&gt;name: 35&lt;br 
+/&gt;name: 35","band: 412.50&lt;br /&gt;value: 0.018409144&lt;br 
+/&gt;name: 35&lt;br /&gt;name: 35","band: 442.50&lt;br /&gt;value: 
+0.025233354&lt;br /&gt;name: 35&lt;br /&gt;name: 35","band: 490.00&lt;br
+ /&gt;value: 0.035671321&lt;br /&gt;name: 35&lt;br /&gt;name: 35","band:
+ 510.00&lt;br /&gt;value: 0.040389026&lt;br /&gt;name: 35&lt;br 
+/&gt;name: 35","band: 560.00&lt;br /&gt;value: 0.053399594&lt;br 
+/&gt;name: 35&lt;br /&gt;name: 35","band: 620.00&lt;br /&gt;value: 
+0.058170959&lt;br /&gt;name: 35&lt;br /&gt;name: 35","band: 665.00&lt;br
+ /&gt;value: 0.055102223&lt;br /&gt;name: 35&lt;br /&gt;name: 35","band:
+ 673.75&lt;br /&gt;value: 0.054369532&lt;br /&gt;name: 35&lt;br 
+/&gt;name: 35","band: 681.25&lt;br /&gt;value: 0.054070327&lt;br 
+/&gt;name: 35&lt;br /&gt;name: 35","band: 708.75&lt;br /&gt;value: 
+0.049500525&lt;br /&gt;name: 35&lt;br /&gt;name: 35","band: 753.75&lt;br
+ /&gt;value: 0.028315957&lt;br /&gt;name: 35&lt;br /&gt;name: 35","band:
+ 778.75&lt;br /&gt;value: 0.028015068&lt;br /&gt;name: 35&lt;br 
+/&gt;name: 35","band: 865.00&lt;br /&gt;value: 0.018522839&lt;br 
+/&gt;name: 35&lt;br /&gt;name: 35","band: 885.00&lt;br /&gt;value: 
+0.015718189&lt;br /&gt;name: 35&lt;br /&gt;name: 
+35"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(137,213,72,0.5)","dash":"solid"},"hoveron":"points","name":"35","legendgroup":"35","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[400,412.5,442.5,490,510,560,620,665,673.75,681.25,708.75,753.75,778.75,865,885],"y":[0.018416568,0.018342607,0.020086153,0.024814784,0.027667781,0.03484143,0.027172851,0.023911099,0.022754905,0.022809887,0.021154767,0.009582045,0.010156799,0.006311241,0.005819855],"text":["band:
+ 400.00&lt;br /&gt;value: 0.018416568&lt;br /&gt;name: 4&lt;br 
+/&gt;name: 4","band: 412.50&lt;br /&gt;value: 0.018342607&lt;br 
+/&gt;name: 4&lt;br /&gt;name: 4","band: 442.50&lt;br /&gt;value: 
+0.020086153&lt;br /&gt;name: 4&lt;br /&gt;name: 4","band: 490.00&lt;br 
+/&gt;value: 0.024814784&lt;br /&gt;name: 4&lt;br /&gt;name: 4","band: 
+510.00&lt;br /&gt;value: 0.027667781&lt;br /&gt;name: 4&lt;br /&gt;name:
+ 4","band: 560.00&lt;br /&gt;value: 0.034841430&lt;br /&gt;name: 4&lt;br
+ /&gt;name: 4","band: 620.00&lt;br /&gt;value: 0.027172851&lt;br 
+/&gt;name: 4&lt;br /&gt;name: 4","band: 665.00&lt;br /&gt;value: 
+0.023911099&lt;br /&gt;name: 4&lt;br /&gt;name: 4","band: 673.75&lt;br 
+/&gt;value: 0.022754905&lt;br /&gt;name: 4&lt;br /&gt;name: 4","band: 
+681.25&lt;br /&gt;value: 0.022809887&lt;br /&gt;name: 4&lt;br /&gt;name:
+ 4","band: 708.75&lt;br /&gt;value: 0.021154767&lt;br /&gt;name: 4&lt;br
+ /&gt;name: 4","band: 753.75&lt;br /&gt;value: 0.009582045&lt;br 
+/&gt;name: 4&lt;br /&gt;name: 4","band: 778.75&lt;br /&gt;value: 
+0.010156799&lt;br /&gt;name: 4&lt;br /&gt;name: 4","band: 865.00&lt;br 
+/&gt;value: 0.006311241&lt;br /&gt;name: 4&lt;br /&gt;name: 4","band: 
+885.00&lt;br /&gt;value: 0.005819855&lt;br /&gt;name: 4&lt;br /&gt;name:
+ 
+4"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(156,217,59,0.5)","dash":"solid"},"hoveron":"points","name":"4","legendgroup":"4","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[400,412.5,442.5,490,510,560,620,665,673.75,681.25,708.75,753.75,778.75,865,885],"y":[0.012822314,0.012732329,0.013481796,0.019061024,0.023062796,0.037323405,0.025491525,0.020749918,0.018230821,0.018218816,0.024695939,0.009197236,0.009797459,0.005383817,0.004635647],"text":["band:
+ 400.00&lt;br /&gt;value: 0.012822314&lt;br /&gt;name: 5&lt;br 
+/&gt;name: 5","band: 412.50&lt;br /&gt;value: 0.012732329&lt;br 
+/&gt;name: 5&lt;br /&gt;name: 5","band: 442.50&lt;br /&gt;value: 
+0.013481796&lt;br /&gt;name: 5&lt;br /&gt;name: 5","band: 490.00&lt;br 
+/&gt;value: 0.019061024&lt;br /&gt;name: 5&lt;br /&gt;name: 5","band: 
+510.00&lt;br /&gt;value: 0.023062796&lt;br /&gt;name: 5&lt;br /&gt;name:
+ 5","band: 560.00&lt;br /&gt;value: 0.037323405&lt;br /&gt;name: 5&lt;br
+ /&gt;name: 5","band: 620.00&lt;br /&gt;value: 0.025491525&lt;br 
+/&gt;name: 5&lt;br /&gt;name: 5","band: 665.00&lt;br /&gt;value: 
+0.020749918&lt;br /&gt;name: 5&lt;br /&gt;name: 5","band: 673.75&lt;br 
+/&gt;value: 0.018230821&lt;br /&gt;name: 5&lt;br /&gt;name: 5","band: 
+681.25&lt;br /&gt;value: 0.018218816&lt;br /&gt;name: 5&lt;br /&gt;name:
+ 5","band: 708.75&lt;br /&gt;value: 0.024695939&lt;br /&gt;name: 5&lt;br
+ /&gt;name: 5","band: 753.75&lt;br /&gt;value: 0.009197236&lt;br 
+/&gt;name: 5&lt;br /&gt;name: 5","band: 778.75&lt;br /&gt;value: 
+0.009797459&lt;br /&gt;name: 5&lt;br /&gt;name: 5","band: 865.00&lt;br 
+/&gt;value: 0.005383817&lt;br /&gt;name: 5&lt;br /&gt;name: 5","band: 
+885.00&lt;br /&gt;value: 0.004635647&lt;br /&gt;name: 5&lt;br /&gt;name:
+ 
+5"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(176,221,47,0.5)","dash":"solid"},"hoveron":"points","name":"5","legendgroup":"5","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[400,412.5,442.5,490,510,560,620,665,673.75,681.25,708.75,753.75,778.75,865,885],"y":[0.018716127,0.018872033,0.020500171,0.025450267,0.028493792,0.036467797,0.027084431,0.022583267,0.021619378,0.021624691,0.017790959,0.010104595,0.010195607,0.008077237,0.006760826],"text":["band:
+ 400.00&lt;br /&gt;value: 0.018716127&lt;br /&gt;name: 6&lt;br 
+/&gt;name: 6","band: 412.50&lt;br /&gt;value: 0.018872033&lt;br 
+/&gt;name: 6&lt;br /&gt;name: 6","band: 442.50&lt;br /&gt;value: 
+0.020500171&lt;br /&gt;name: 6&lt;br /&gt;name: 6","band: 490.00&lt;br 
+/&gt;value: 0.025450267&lt;br /&gt;name: 6&lt;br /&gt;name: 6","band: 
+510.00&lt;br /&gt;value: 0.028493792&lt;br /&gt;name: 6&lt;br /&gt;name:
+ 6","band: 560.00&lt;br /&gt;value: 0.036467797&lt;br /&gt;name: 6&lt;br
+ /&gt;name: 6","band: 620.00&lt;br /&gt;value: 0.027084431&lt;br 
+/&gt;name: 6&lt;br /&gt;name: 6","band: 665.00&lt;br /&gt;value: 
+0.022583267&lt;br /&gt;name: 6&lt;br /&gt;name: 6","band: 673.75&lt;br 
+/&gt;value: 0.021619378&lt;br /&gt;name: 6&lt;br /&gt;name: 6","band: 
+681.25&lt;br /&gt;value: 0.021624691&lt;br /&gt;name: 6&lt;br /&gt;name:
+ 6","band: 708.75&lt;br /&gt;value: 0.017790959&lt;br /&gt;name: 6&lt;br
+ /&gt;name: 6","band: 753.75&lt;br /&gt;value: 0.010104595&lt;br 
+/&gt;name: 6&lt;br /&gt;name: 6","band: 778.75&lt;br /&gt;value: 
+0.010195607&lt;br /&gt;name: 6&lt;br /&gt;name: 6","band: 865.00&lt;br 
+/&gt;value: 0.008077237&lt;br /&gt;name: 6&lt;br /&gt;name: 6","band: 
+885.00&lt;br /&gt;value: 0.006760826&lt;br /&gt;name: 6&lt;br /&gt;name:
+ 
+6"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(195,224,34,0.5)","dash":"solid"},"hoveron":"points","name":"6","legendgroup":"6","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[400,412.5,442.5,490,510,560,620,665,673.75,681.25,708.75,753.75,778.75,865,885],"y":[0.016555646,0.016537224,0.01759492,0.021729213,0.024912458,0.033829328,0.019804966,0.014864785,0.013793361,0.013688209,0.010831808,0.004782307,0.004850341,0.003239682,0.002882146],"text":["band:
+ 400.00&lt;br /&gt;value: 0.016555646&lt;br /&gt;name: 7&lt;br 
+/&gt;name: 7","band: 412.50&lt;br /&gt;value: 0.016537224&lt;br 
+/&gt;name: 7&lt;br /&gt;name: 7","band: 442.50&lt;br /&gt;value: 
+0.017594920&lt;br /&gt;name: 7&lt;br /&gt;name: 7","band: 490.00&lt;br 
+/&gt;value: 0.021729213&lt;br /&gt;name: 7&lt;br /&gt;name: 7","band: 
+510.00&lt;br /&gt;value: 0.024912458&lt;br /&gt;name: 7&lt;br /&gt;name:
+ 7","band: 560.00&lt;br /&gt;value: 0.033829328&lt;br /&gt;name: 7&lt;br
+ /&gt;name: 7","band: 620.00&lt;br /&gt;value: 0.019804966&lt;br 
+/&gt;name: 7&lt;br /&gt;name: 7","band: 665.00&lt;br /&gt;value: 
+0.014864785&lt;br /&gt;name: 7&lt;br /&gt;name: 7","band: 673.75&lt;br 
+/&gt;value: 0.013793361&lt;br /&gt;name: 7&lt;br /&gt;name: 7","band: 
+681.25&lt;br /&gt;value: 0.013688209&lt;br /&gt;name: 7&lt;br /&gt;name:
+ 7","band: 708.75&lt;br /&gt;value: 0.010831808&lt;br /&gt;name: 7&lt;br
+ /&gt;name: 7","band: 753.75&lt;br /&gt;value: 0.004782307&lt;br 
+/&gt;name: 7&lt;br /&gt;name: 7","band: 778.75&lt;br /&gt;value: 
+0.004850341&lt;br /&gt;name: 7&lt;br /&gt;name: 7","band: 865.00&lt;br 
+/&gt;value: 0.003239682&lt;br /&gt;name: 7&lt;br /&gt;name: 7","band: 
+885.00&lt;br /&gt;value: 0.002882146&lt;br /&gt;name: 7&lt;br /&gt;name:
+ 
+7"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(216,226,25,0.5)","dash":"solid"},"hoveron":"points","name":"7","legendgroup":"7","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[400,412.5,442.5,490,510,560,620,665,673.75,681.25,708.75,753.75,778.75,865,885],"y":[0.012210117,0.011901022,0.011726413,0.016448387,0.01999569,0.033424864,0.021413485,0.018137048,0.015563377,0.015510153,0.026727566,0.012742385,0.013410689,0.008058397,0.006965595],"text":["band:
+ 400.00&lt;br /&gt;value: 0.012210117&lt;br /&gt;name: 8&lt;br 
+/&gt;name: 8","band: 412.50&lt;br /&gt;value: 0.011901022&lt;br 
+/&gt;name: 8&lt;br /&gt;name: 8","band: 442.50&lt;br /&gt;value: 
+0.011726413&lt;br /&gt;name: 8&lt;br /&gt;name: 8","band: 490.00&lt;br 
+/&gt;value: 0.016448387&lt;br /&gt;name: 8&lt;br /&gt;name: 8","band: 
+510.00&lt;br /&gt;value: 0.019995690&lt;br /&gt;name: 8&lt;br /&gt;name:
+ 8","band: 560.00&lt;br /&gt;value: 0.033424864&lt;br /&gt;name: 8&lt;br
+ /&gt;name: 8","band: 620.00&lt;br /&gt;value: 0.021413485&lt;br 
+/&gt;name: 8&lt;br /&gt;name: 8","band: 665.00&lt;br /&gt;value: 
+0.018137048&lt;br /&gt;name: 8&lt;br /&gt;name: 8","band: 673.75&lt;br 
+/&gt;value: 0.015563377&lt;br /&gt;name: 8&lt;br /&gt;name: 8","band: 
+681.25&lt;br /&gt;value: 0.015510153&lt;br /&gt;name: 8&lt;br /&gt;name:
+ 8","band: 708.75&lt;br /&gt;value: 0.026727566&lt;br /&gt;name: 8&lt;br
+ /&gt;name: 8","band: 753.75&lt;br /&gt;value: 0.012742385&lt;br 
+/&gt;name: 8&lt;br /&gt;name: 8","band: 778.75&lt;br /&gt;value: 
+0.013410689&lt;br /&gt;name: 8&lt;br /&gt;name: 8","band: 865.00&lt;br 
+/&gt;value: 0.008058397&lt;br /&gt;name: 8&lt;br /&gt;name: 8","band: 
+885.00&lt;br /&gt;value: 0.006965595&lt;br /&gt;name: 8&lt;br /&gt;name:
+ 
+8"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(235,229,27,0.5)","dash":"solid"},"hoveron":"points","name":"8","legendgroup":"8","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[400,412.5,442.5,490,510,560,620,665,673.75,681.25,708.75,753.75,778.75,865,885],"y":[0.025942937,0.025381352,0.025617691,0.030811787,0.034889522,0.051558167,0.03898551,0.033125504,0.030240996,0.030143975,0.041225512,0.026025832,0.025709969,0.01749506,0.01571379],"text":["band:
+ 400.00&lt;br /&gt;value: 0.025942937&lt;br /&gt;name: 9&lt;br 
+/&gt;name: 9","band: 412.50&lt;br /&gt;value: 0.025381352&lt;br 
+/&gt;name: 9&lt;br /&gt;name: 9","band: 442.50&lt;br /&gt;value: 
+0.025617691&lt;br /&gt;name: 9&lt;br /&gt;name: 9","band: 490.00&lt;br 
+/&gt;value: 0.030811787&lt;br /&gt;name: 9&lt;br /&gt;name: 9","band: 
+510.00&lt;br /&gt;value: 0.034889522&lt;br /&gt;name: 9&lt;br /&gt;name:
+ 9","band: 560.00&lt;br /&gt;value: 0.051558167&lt;br /&gt;name: 9&lt;br
+ /&gt;name: 9","band: 620.00&lt;br /&gt;value: 0.038985510&lt;br 
+/&gt;name: 9&lt;br /&gt;name: 9","band: 665.00&lt;br /&gt;value: 
+0.033125504&lt;br /&gt;name: 9&lt;br /&gt;name: 9","band: 673.75&lt;br 
+/&gt;value: 0.030240996&lt;br /&gt;name: 9&lt;br /&gt;name: 9","band: 
+681.25&lt;br /&gt;value: 0.030143975&lt;br /&gt;name: 9&lt;br /&gt;name:
+ 9","band: 708.75&lt;br /&gt;value: 0.041225512&lt;br /&gt;name: 9&lt;br
+ /&gt;name: 9","band: 753.75&lt;br /&gt;value: 0.026025832&lt;br 
+/&gt;name: 9&lt;br /&gt;name: 9","band: 778.75&lt;br /&gt;value: 
+0.025709969&lt;br /&gt;name: 9&lt;br /&gt;name: 9","band: 865.00&lt;br 
+/&gt;value: 0.017495060&lt;br /&gt;name: 9&lt;br /&gt;name: 9","band: 
+885.00&lt;br /&gt;value: 0.015713790&lt;br /&gt;name: 9&lt;br /&gt;name:
+ 
+9"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(253,231,37,0.5)","dash":"solid"},"hoveron":"points","name":"9","legendgroup":"9","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":26.2283105022831,"r":7.30593607305936,"b":40.1826484018265,"l":54.7945205479452},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[375.75,909.25],"tickmode":"array","ticktext":["400","500","600","700","800","900"],"tickvals":[400,500,600,700,800,900],"categoryorder":"array","categoryarray":["400","500","600","700","800","900"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"Wavelength
+ 
+[nm]","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.0021503014,0.0914657134],"tickmode":"array","ticktext":["0.000","0.025","0.050","0.075"],"tickvals":[0,0.025,0.05,0.075],"categoryorder":"array","categoryarray":["0.000","0.025","0.050","0.075"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"Rrs
+ 
+1/sr","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"transparent","line":{"color":"rgba(51,51,51,1)","width":0.66417600664176,"linetype":"solid"},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","width":350,"height":250,"barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"1645418c220f8":{"x":{},"y":{},"colour":{},"type":"scatter"}},"cur_data":"1645418c220f8","visdat":{"1645418c220f8":["function
+ (y) 
+","x"]},"highlight":
+{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":
+{"opacity":1},"debounce":0},"shinyEvents":
+["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":
+[],"jsHooks":[]}&lt;/script&gt;
+
+]
+
+---
+.center[
+.size-60[
+![TSSIM](./figs/proj_tssim.png)
+[`TSSIM`](https://github.com/bishun945/TSSIM)是针对时序栅格数据的.boldred[补缺]工具包。
+]]
+
+
+
+---
+
+.center[
+### 基于最近邻时序线性关系的插补
+]
+
+.pull-left[
+
+找出缺失值
+
+![find_na](./figs/tssim/README-plot result-1.png)
+
+]
+
+.pull-right[
+
+逐次插补
+
+&lt;br&gt;
+
+![interp](./figs/tssim/README-unnamed-chunk-55-9.png)
+
+]
+
+---
+
+class: center
+
+### 基于DINEOF的缺失值插补（推荐）
+
+.size-80[
+![im_with_na](./figs/tssim/unnamed-chunk-2-2.png)
+]
+
+.size-80[
+![im_after](./figs/tssim/unnamed-chunk-3-1.png)
+]
+
+---
+
+### [seadasr](https://github.com/bishun945/seadasr) (v0.0.0)
+
+**简介**：在linux环境下调用seadas的`gpt.sh`与OCSSW的接口对影像数据进行大气校正等处理
+
+**开发目的**：
+
++ 避免`IDL`的证书问题
+
++ 使用开源社区中更丰富多彩的工具（`IDL`过于古董）
+
++ 重新构建了工作路径的创建和刷新问题
+
++ 增加函数的复用
+
+**主要函数**：
+
++ .boldred[下载影像] `download_goci_images`, `download_goci_images_range`, 
+`download_goci_images_website`, `download_images`
+
++ .boldred[快视图生成] `get_quick_view`, `get_quick_view_loop`
+
++ .boldred[大气校正（子、主）函数] `get_subset_array`, `goci_ac_dw`, `modis_ac_dw`,
+ `run_goci_seadas`, `run_modis_seadas`, `run_seadas`
+
+
+---
+
+### hdf_to_envi的替代方案
+
+.smaller[
+
+``` r
+hdf_to_raster &lt;- function(hdf, xml, work_dir) {
+
+  if(!file.exists(xml))
+    stop("xml file not found!")
+
+* system(sprintf("gpt.sh %s -t %s/tmp.dim -Ssource=%s", xml, work_dir, 
+hdf))
+
+  img_files &lt;- list.files(file.path(work_dir, "tmp.data"), 
+pattern="*.img$",
+                          full.names = TRUE, include.dirs = TRUE)
+
+  return(data.frame(stringsAsFactors = FALSE,
+                    img_files,
+                    img_name = basename(img_files)))
+
+  system(sprintf("rm %s/tmp.dim", work_dir))
+  system(sprintf("rm -rf %s/tmp.data", work_dir))
+
+}
+```
+
+]
+
+---
+
+### 增加函数复用
+
+以DW算法为例，其包括`清洁水体确定` `气溶胶计算` `基于气溶胶计算水体遥感反射率`;
+
+除`L0`文件读入存在差异（逐传感器编写），从`L1`至`L2`的`l2gen`处理基本一致，该过程可以写成泛型函数；
+
+工作路径、临时路径、`L0`和`have_done`等文件夹初始化操作也可以复用。
+
+### 栅格处理依赖
+
+依赖于`raster`和`rgdal`工具包实现栅格数据处理，包括投影；
+
+依赖于`ggplot2`等工具包实现可视化；
+
+依赖于`leaflet`等工具包实现交互式地图检视。
+
+---
+
+### 计划更新（毕业论文写完之前不会做）
+
+添加Sentinel-API下载SLSTR数据，实现ACbTC的大气校正；
+
+基于`rgee`包筛选cloud-free影像ID，并下载；
+
+转化刘阁最新AC方法。
+
+---
+
+# References
+
++ Klausmeier C A, Litchman E. Algal games: The vertical distribution of 
+phytoplankton in poorly mixed water columns[J]. Limnology and 
+Oceanography, 2001, 46(8): 1998-2007.
+
++ Huisman J, Sommeijer B. Population dynamics of sinking phytoplankton 
+in light-limited environments: simulation techniques and critical 
+parameters[J]. Journal of Sea Research, 2002, 48(2): 83-96.
+
++ Ji Z G. Hydrodynamics and Water Quality: Modeling Rivers[J]. Lakes, 
+and Estuaries, 2008.
+
++ 翟瑞彩, 谢伟松. 数值分析[M]. 天津大学出版社, 2000.
+
++ [APC591 Tutorial 5: Numerical Solution of the Diffusion 
+Equation](https://sites.me.ucsb.edu/~moehlis/APC591/tutorials/tutorial5/tutorial5.html)
+
++
+ Images mainly from [Google 
+img](https://www.google.com.hk/imghp?hl=zh-CN&amp;tab=wi&amp;ogbl)
+
++ Icons from [FontAwesome](https://fontawesome.com/icons?d=gallery)
+
++ [王娴 
+对流-扩散方程的离散格式](http://gr.xjtu.edu.cn/c/document_library
+/get_file?folderId=2231676&amp;name=DLFE-79332.pdf)
+
+---
+
+class: center, middle, inverse
+
+.size-40[
+
+![thanks](./figs/thanks-trans.gif)
+]
+
+--
+
+## .large[提问时间]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="index_files/remark-latest.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"navigation": {
+"scroll": true
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+(function(time) {
+  var d2 = function(number) {
+    return ('0' + number).slice(-2); // left-pad 0 to minutes/seconds
+  },
+
+  time_format = function(total) {
+    var secs = Math.abs(total) / 1000;
+    var h = Math.floor(secs / 3600);
+    var m = Math.floor(secs % 3600 / 60);
+    var s = Math.round(secs % 60);
+    var res = d2(m) + ':' + d2(s);
+    if (h > 0) res = h + ':' + res;
+    return res;  // [hh:]mm:ss
+  },
+
+  slide_number_div = function(i) {
+    return document.getElementsByClassName('remark-slide-number').item(i);
+  },
+
+  current_page_number = function(i) {
+    return slide_number_div(i).firstChild.textContent;  // text "i / N"
+  };
+
+  var timer = document.createElement('span'); timer.id = 'slide-time-left';
+  var time_left = time, k = slideshow.getCurrentSlideIndex(),
+      last_page_number = current_page_number(k);
+
+  setInterval(function() {
+    time_left = time_left - 1000;
+    timer.innerHTML = ' ' + time_format(time_left);
+    if (time_left < 0) timer.style.color = 'red';
+  }, 1000);
+
+  slide_number_div(k).appendChild(timer);
+
+  slideshow.on('showSlide', function(slide) {
+    var i = slide.getSlideIndex(), n = current_page_number(i);
+    // reset timer when a new slide is shown and the page number is changed
+    if (last_page_number !== n) {
+      time_left = time; last_page_number = n;
+      timer.innerHTML = ' ' + time_format(time); timer.style.color = null;
+    }
+    slide_number_div(i).appendChild(timer);
+  });
+})(90000);
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  
+
+</body></html>
